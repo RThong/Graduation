@@ -1,0 +1,70 @@
+<% include ../includes/header %>
+<div class="coupon_main">
+	<div class="container clearfix">
+		<div class="detail_content fl">
+			<div class="path">
+			<a href="/">首页</a> > <a href="/theme">优惠券</a> > <a href="/theme/<%= couponCategory._id %>"><%= couponCategory.theme.name %></a> > <%= couponCategory.title %>
+			</div>
+			<div class="coupon_detail clearfix">
+				<div class="coupon_detail_card fl">
+					<div class="card_box clearfix">
+						<div class="card_shop_logo fl">
+							<img src="<%= couponCategory.theme.img %>" alt="">
+						</div>
+						<div class="card_shop_sale fl">
+							<span class="coupon_titile">
+								<%= ((couponCategory.title.split(couponCategory.theme.name))[1].split(couponCategory.price))[0] %><br><span><i class="iconfont icon-icomoon"></i><%= couponCategory.price %></span>
+							</span>
+						</div>
+					</div>
+				</div>
+				<div class="coupon_info fl">
+					<h4><%= couponCategory.title %></h4>
+					<p>兑换条件：<span><%= couponCategory.price %></span>积分</p>
+					<p>剩余张数：<span>98</span>张（已有2人领取）</p>
+					<p>有效期至：<%= moment(couponCategory.expirationtime).format('YYYY-MM-DD  HH:mm') %></p>
+					<div class="coupon_action">
+						<a href="" class="btn">立即领取</a>
+						<a class="my_coupon" href="">查看我的优惠券</a>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="coupon_direction">
+				<p class="item_tit">使用说明</p>
+				<ul class="direction_detail">
+					<li>1、在<%= couponCategory.theme.name %>购物可使用该优惠券抵扣<%= couponCategory.price %>元；</li>
+					<li>2、该优惠券为激活券形式，客户可事先到页面激活，或者在核对订单信息时在支付信息中完成激活；</li>
+					<li>3、优惠券有效期至<%= moment(couponCategory.expirationtime).format('YYYY年MM月DD日') %>，逾期无效；</li>
+					<li>4、每个订单限制使用一张优惠券。</li>
+				</ul>
+				<ul class="coupon_use clearfix">
+					<li class="use_t">如何使用优惠券<span></span></li>
+					<li><i>1</i>挑选商品<span></span></li>
+					<li><i>2</i>在商城结算时输入券号<span></span></li>
+					<li><i>3</i>享受优惠</li>
+				</ul>
+			</div>
+		</div>
+		<div class="detail_side fl">
+			<div class="shop_info">
+				<div class="side_item_tit">
+					<span></span>商城介绍
+				</div>
+				<div class="side_item_info">
+					<div class="shop_logo">
+						<img src="<%= couponCategory.theme.img %>" alt="">
+					</div>
+					<div class="dir_wrap">
+						<p><%= couponCategory.theme.describe %>
+						</p>
+					</div>
+					<a href="<%= couponCategory.theme.link %>" target="_blank" class="goto_btn">前往商城购物<span>></span></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/javascripts/moment.js"></script>
+<% include ../includes/footer %>

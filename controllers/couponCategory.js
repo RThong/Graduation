@@ -52,3 +52,17 @@ exports.handleData = function(req, res, next){
   })
 } 
 
+exports.detail = function(req, res, next){
+  var coupon = req.params.coupon;
+
+  CouponCategory.findOne({_id: coupon})
+  .populate({
+    path: 'theme'
+  })
+  .exec(function(err,couponCategory){
+    res.render('coupon_detail', {
+      filename: 'coupon_detail',
+      couponCategory: couponCategory
+    })
+  })
+}

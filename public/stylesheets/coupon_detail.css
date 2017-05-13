@@ -1,0 +1,215 @@
+.coupon_main .container{
+	background: #fff;
+}
+
+.detail_content{
+	padding: 0 35px;
+	background: #fff;
+	width: 820px;
+	padding-bottom: 100px;
+}
+.detail_content .path{
+	padding: 10px 0;
+	font-size: 14px;	
+	color: #bdbdbd;
+	border-bottom: 1px dashed #f0f0f0;
+}
+
+.coupon_detail{
+	padding: 35px 0;
+}
+.detail_content .coupon_detail_card{
+	position: relative;
+	width: 304px;
+	padding-top: 45px;
+	height: 196px;
+	margin-right: 45px;
+	border: 1px solid #ebebeb;
+}
+.detail_content .card_box{
+	margin: 0px auto 0 auto;
+	width: 268px;
+	height: 110px;
+	background-position: 0 -96px;
+	background-image: url(/images/coupon_ico.png);
+	background-repeat: no-repeat;
+}
+.coupon_detail .card_shop_logo{
+	width: 120px;
+	height: 60px;
+	padding: 22px 27px;
+}
+.coupon_detail .card_shop_logo img{
+	width: 120px;
+	height: 60px;
+}
+.coupon_detail .card_shop_sale{
+	margin-left: 53px;
+	width: 85px;
+	padding-top: 28px;
+	color: #f95c68;
+	font-size: 14px;
+	text-align: center;
+}  
+.coupon_detail .card_shop_sale .iconfont{
+	font-weight: 500;
+	margin-right: -4px;
+}
+.coupon_detail .card_shop_sale>span>span{
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	font-size: 30px;
+	color: #ff4c5b;
+	font-family: Arial;
+	font-weight: 700;
+	font-style: normal;
+}
+.coupon_info{
+	margin-left: 60px;
+}
+.coupon_info h4{
+	padding-bottom: 10px;
+	font-weight: 400;
+	font-size: 18px;
+	color: #333;
+	font-family: Arial,"Microsoft YaHei"; 
+}  
+.coupon_info>p{
+	line-height: 24px;
+	color: #666; 
+	font-size: 14px;
+}
+.coupon_info>p span{
+	padding-right: 3px;
+	color: #ff4c5b;
+	font-size: 14px;
+}         
+.coupon_info .coupon_action{
+	margin-top: 56px;
+}
+.coupon_info .my_coupon{
+	font-size: 12px;
+	margin-left: 20px;
+  color: #3366cc;
+}
+
+
+.coupon_direction{
+	border-top: 1px dashed #f0f0f0;
+}
+.coupon_direction .item_tit {
+	padding: 15px 0 10px 25px;
+	font-size: 16px;
+	font-weight: 700;
+	color: #333;
+}  
+.coupon_direction .direction_detail {
+	padding-left: 25px;
+	line-height: 28px;
+	color: #333;
+	font-size: 14px;
+}
+.coupon_direction .coupon_use{
+	margin: 20px 0;
+	height: 44px;
+	background: #f0f0f0;
+}
+.coupon_direction .use_t{
+	padding-left: 30px;
+	font-size: 14px;
+	color: #f95c68;
+	font-weight: 700;
+	padding-left: 40px !important;
+} 
+.coupon_direction .coupon_use li{
+	float: left;
+	display: inline-block;
+	width: auto;
+	height: 44px;
+	line-height: 44px;
+	padding-left: 0px;
+	padding-right: 30px;
+	font-size: 14px;
+}
+.coupon_direction .coupon_use li span{
+	float: right;
+	vertical-align: middle;
+	display: inline-block;
+	height: 44px;
+	width: 30px;
+	margin-left: 20px;
+	background-position: 0 -215px;
+	background-image: url(/images/coupon_ico.png);
+	background-repeat: no-repeat;
+}
+.coupon_direction .coupon_use li i{
+	margin-right: 5px;
+	font-size: 14px;
+	color: #f95c68;
+	font-weight: 700;
+	font-style: italic;
+}   
+
+
+
+
+.detail_side{
+	width: 280px;
+	background: #fff;
+}
+.detail_side .side_item_tit{
+	padding: 10px 0;
+	font-size: 14px;
+	font-weight: 700;
+	color: #000;
+	font-family: Arial,"Microsoft YaHei";
+}
+.detail_side .side_item_tit span{
+	display: inline-block;
+	width: 4px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: -3px;
+	background: #f95c68;
+}
+
+.detail_side .side_item_info{
+	margin-left: 4px;
+	margin-right: 35px;
+	padding-top: 5px;
+}
+.detail_side .shop_logo{
+	width: 120px;
+	height: 60px;
+	margin: 0 auto;
+}
+.detail_side .shop_logo img{
+	border: 0 none;
+	height: auto;
+	max-width: 100%;
+	vertical-align: top;
+} 
+.detail_side .dir_wrap{
+	margin: 30px 0 20px 0;
+	overflow: hidden;
+	height: 92px; 
+	color: #666;
+	font-size: 14px;
+}
+.detail_side .goto_btn{
+	display: block;
+	margin-top: 30px;
+	border: 1px solid #ea3524;
+	text-align: center;
+	padding: 5px 0;
+	color: #ea3524;
+	font-size: 14px;
+}
+.detail_side .goto_btn span{
+	padding-left: 2px;
+	font-family: "SimSun";
+	font-weight: 700;
+	vertical-align: middle;
+} 
+        

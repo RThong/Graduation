@@ -32,7 +32,7 @@
 			<ul class="clearfix">
 				<% theme.categories.forEach(function(item){%>
 				<li class="quan_box fl">
-					<a href="">
+					<a href="/theme/<%= theme._id %>/<%= item._id %>">
 						<img src="<%= theme.img %>" alt="">			
 						<span class="coupon_info">
 						<%= ((item.title.split(theme.name))[1].split(item.price))[0] %><br><span><i class="iconfont icon-icomoon"></i><%= item.price %></span>

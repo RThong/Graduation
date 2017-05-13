@@ -32,9 +32,9 @@ exports.handleData = function(req, res, next){
   })
 } 
 exports.detail = function(req, res, next){
-  var id = req.params.id;
+  var theme = req.params.theme;
 
-  Theme.findOne({_id: id})
+  Theme.findOne({_id: theme})
   .populate({
     path: 'categories'
   })

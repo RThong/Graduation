@@ -117,8 +117,8 @@ router.get('/ajax/page_collect', User.pageCollect);
 //优惠券主题页面
 router.get('/theme', Theme.index);
 
-//优惠券页面
-router.get('/theme/:id', Theme.detail);
+//优惠券详细页面
+router.get('/theme/:theme', Theme.detail);
 
 //优惠券主题录入页
 router.get('/admin/theme', Theme.input);
@@ -131,5 +131,8 @@ router.get('/admin/coupon_category', CouponCategory.input);
 
 //优惠券主题接受
 router.post('/admin/coupon_category/new', CouponCategory.handleData);
+
+//优惠券页面
+router.get('/theme/:theme/:coupon', CouponCategory.detail);
 
 module.exports = router;
