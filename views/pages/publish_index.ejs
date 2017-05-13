@@ -1,0 +1,60 @@
+<% include ../includes/header %>
+<div class="container">
+	<div class="publish_head clearfix">
+		<div class="category_bar fl clearfix">
+			<span class="fl">分类筛选 :</span>
+			<ul class="clearfix fl">
+				<li class="category_list fl"><a href="">全部分类</a></li>
+			<% categories.forEach(function(item){ %>
+				<li class="category_list fl"><a href="/publish/category/<%= item._id %>"><%= item.name %></a></li>
+			<% }) %>
+			</ul>
+		</div>
+		
+		<div class="pub_area fl">
+			
+			<div class="total_pub_num clearfix">
+				<span class="total_pub_tip fl">已有</span>
+				<div class="total_pub_box fl">
+					<div class="digital_container">
+						<span>1</span>
+						<span>2</span>
+						<span>3</span>
+						<span>4</span>
+						<span>5</span>
+						<span>6</span>
+					</div>				
+				</div>			
+				<span class="total_pub_tip fl">条爆料</span>
+			</div>
+			
+			<a class="btn btn_publish"><i class="iconfont icon-pen"></i>	爆料有奖
+			</a>
+			
+		</div>
+	</div>
+</div>
+<div class="publish_wrap">
+	<ul class="clearfix">
+	<% discounts.forEach(function(item){ %>
+		<li class="publish_box shadow fl">
+			<div class="pub_pic">
+				<a href="/publish/<%= item._id%>"><img width="236px" height="236px" src="<%= item.img %>" alt=""></a>
+			</div>
+			<p class="pub_tit">
+				<a href="/publish/<%= item._id%>"><%= item.title %></a>
+			</p>
+			<p class="pub_ksy">
+				<a href="javascripts:;"><%= item.key %></a>
+			</p>
+			<div class="pub_info clearfix">
+				<span class="pub_time"><%= moment(item.meta.updateAt).format('MM月DD日 HH:mm') %></span>
+				<span class="pub_user fr">海龙王</span>
+			</div>
+			<a class="btn" target="_blank" href="<%= item.site%>">前往购买</a>
+		
+		</li>
+		<% }) %>
+	</ul>
+</div>
+<% include ../includes/footer %>

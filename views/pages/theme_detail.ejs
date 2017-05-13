@@ -1,0 +1,49 @@
+<% include ../includes/header %>
+<div class="container">
+	<div class="main_head">
+		<div class="path">
+			<a href="/">首页</a> > <a href="/theme">优惠券</a> > <%= theme.name %>
+		</div>
+		<div class="content clearfix">
+			<a class="fl" target="_blank" href="<%= theme.link %>">
+				<img src="<%= theme.img %>" alt="<%= theme.name %>">
+			</a>
+			<div class="info fl">
+				<p class="title">
+					<span><%= theme.name %></span><a target="_blank" href="<%= theme.link %>"><%= theme.link %></a>
+				</p>
+				<p class="mall_des clearfix">
+					<span class="">商城介绍 : </span><%= theme.describe %>
+				</p>
+				<p class="mall_des">
+					<span>客服电话 : </span><%= theme.phone %>
+				</p>
+				<a href="<%= theme.link %>" target="_blank" class="mall_link fr">去<%= theme.name %>购物</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="mall_content">
+		<div class="md_title">
+			<h4>优惠券</h4>
+		</div>
+
+		<div class="quan_list">
+			<ul class="clearfix">
+				<% theme.categories.forEach(function(item){%>
+				<li class="quan_box fl">
+					<a href="">
+						<img src="<%= theme.img %>" alt="">			
+						<span class="coupon_info">
+						<%= ((item.title.split(theme.name))[1].split(item.price))[0] %><br><span><i class="iconfont icon-icomoon"></i><%= item.price %></span>
+						</span>
+						<span class="get_btn">立即领取</span>
+					</a>
+				</li>
+				<% }) %>
+				
+			</ul>
+		</div>
+	</div>
+</div>	
+<% include ../includes/footer %>

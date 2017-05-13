@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h2><%= title %></h2>
+			</div>
+			<form class="form-horizontal" method="post" action="/admin/discount/new">
+				<% if(discount._id){ %>
+				<input type="hidden" name="discount[_id]" value="<%= discount._id %>">
+				<% } %>
+				
+				<% if(discount._id){ %>
+				<input type="hidden" name="discount[type]" value="<%= discount.type %>">
+				<% }else{ %>
+				<input type="hidden" name="discount[type]" value="1">
+				<% } %>
+				<input type="hidden" name="discount[verify]" value="1">
+				<div class="form-group">
+					<label for="inputTitle" class="col-xs-2 control-label">商品名称</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputTitle" class="form-control" name="discount[title]" value="<%= discount.title %>">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputCategory" class="col-xs-2 control-label">商品类型</label>
+					<div class="col-xs-8">
+				
+						<select id="inputCategory" class="form-control" name="discount[category]">
+							<option value=""  style="color: #b6b6b6" disabled selected>请选择类型</option>
+						<% categories.forEach(function(item){ %>
+							<% if(discount._id&&discount.category&&discount.category.toString()==item._id.toString()){ %>
+								<option value="<%= item._id %>" selected="selected"><%= item.name %></option>
+							<% }else{%>
+								<option value="<%= item._id %>"><%= item.name %></option>
+							<% }%>
+						<% }) %>
+						
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputImg" class="col-xs-2 control-label">商品图片地址</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputImg" class="form-control" name="discount[img]" value="<%= discount.img %>">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="inputKey" class="col-xs-2 control-label">关键词</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputKey" class="form-control" name="discount[key]" value="<%= discount.key %>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputIntro" class="col-xs-2 control-label">推荐理由</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputIntro" class="form-control" name="discount[intro]" value="<%= discount.intro %>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputSite" class="col-xs-2 control-label">购买地址</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputSite" class="form-control" name="discount[site]" value="<%= discount.site %>">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputSite" class="col-xs-2 control-label">反馈状态</label>
+					<div class="col-xs-8">
+						<select id="inputCategory" class="form-control" name="discount[status]">
+							<option class="text-success" value="1">已通过</option><option class="text-danger" value="11">未通过(价格优势不明显)</option>															
+							<option class="text-danger" value="12">未通过(该爆料已经存在)</option>			
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-offset-5 col-xs-10">
+						<button class="btn btn-success" type="submit">提交</button>
+					</div>
+				</div>
+
+			</form>	
+					
+		</div>
+	</div>
+	
+	
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,260 @@
+/*网站顶部*/	
+
+.top_sitebar{
+	height: 30px;
+	line-height: 30px;
+}
+.top_sitebar .fg_line{
+	margin: 0 8px 0 7px;
+	display: inline-block;
+	vertical-align: middle;
+	color: #ccc;
+}
+.top_sitebar .user_info{
+	position: relative;
+}
+.user_info .nickname{
+	display: inline-block;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: 1px solid #f5f5f5;
+	border-bottom: none;
+	border-top: none;
+}
+.user_info .nickname img{
+	position: absolute;
+	top: 5px;
+}
+.user_info .user_list{
+	display: inline-block;
+}
+.user_info .fa-caret-down{
+	margin-left: 3px;
+}
+
+.user_info .username{
+	margin-left: 30px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #5e5e5e;
+}
+.user_info .dropdown{
+	
+	background: #fff;
+	display: none;
+	position: absolute;
+	left: 0px;
+	top: 1;
+	z-index: 2;
+	border: 1px solid #ebebeb;
+	border-top: none;
+}
+.user_info .dropdown>li{
+	padding: 5px 10px;
+}
+.user_info .dropdown>li>a{
+	color: #5e5e5e;
+	font-size: 14px; 
+}
+.dropdown li:hover a{
+	color: #ea3524;
+}
+.iconfont{
+	font-size: 14px;
+	margin-right: 5px;
+}
+.sitebar_entry{
+	width: 800px;
+}
+.sitebar_topnav{
+	text-align: center;
+}
+.sitebar_topnav li{
+	width: 100px;
+}
+
+
+
+/*网站头部*/
+.header{
+	padding-top: 50px; 
+	padding-bottom: 80px;
+	background: #fff;
+}
+.site_logo{
+	width: 150px;
+	text-align: center;
+	position: relative;
+	bottom: 20px;
+	right: 25px;
+}
+.icon_li{
+	margin-right: 20px;		
+}
+.site_category{
+	margin-left: 80px;
+}
+.icon{
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: #e3e4e5;
+	border-radius: 12px;
+	text-align: center;	
+	color: #fff;
+	line-height: 24px;	
+}
+.keywords{
+	float: left;
+	display: inline-block;
+	width: 220px;
+	padding: 6px 0;
+	border: solid #ec3524;
+	border-width: 1px 0 1px 1px;
+	line-height: 22px;
+	font-size: 14px;
+	text-indent: 8px;
+	color: #ccc;
+	outline: none;
+}
+.search_submit{
+	display: inline-block;
+	width: 36px;
+	height: 36px;
+	border: 0px;
+	font-size: 20px;
+	line-height: 36px;
+	color: #fff;
+	cursor: pointer;
+	background: #ec3524;
+}
+
+
+/*导航栏*/
+.navbar{
+	background: #333;
+}
+.nav_li{
+	width: 115px;
+	padding: 10px 20px;
+	text-align: center;
+}
+.nav_li:hover{
+	background: #ea3524;
+	cursor: pointer;
+}
+
+/*模态框*/
+.modal{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 1001;
+	transform:translate(-50%, -50%);
+	display: block;
+	width: 520px;
+	height: 380px;
+	border: 1px solid #d1d1d1;
+	background: #fff;
+}
+.modal	.modal_close{
+	position: absolute;
+	right: 3px;
+	top: -7px;
+	font-size: 30px;
+	color: #ccc;
+}
+.modal	.modal_close:hover{
+	color: #aaa;
+	cursor: pointer;
+}
+.modal	.login_title{
+	line-height: 46px;
+	height: 46px;
+	padding: 0px 40px;
+	border: 1px solid #e6e6e6;
+}
+.modal	.login_doc{
+	font-size: 18px;
+	font-weight: 700;
+}
+.modal	.signup_doc{
+	font-size: 14px;
+	margin-right: 50px;
+	text-decoration: none;
+	color: #3366cc;
+}
+.modal	.login_main{
+	padding: 40px 0;
+}
+.modal	.login_main .input_tit{
+	display: block;
+	width: 120px;
+	height: 36px;
+	padding-right: 0px;
+	line-height: 36px;
+	text-align: right;
+	color: #666;
+}
+.modal	.username,.password{
+	padding-bottom: 30px;
+}
+.modal	.input_con{
+	position: relative;
+}
+.modal	.input_con>input{
+	height: 36px;
+	line-height: 20px;
+	width: 280px;
+	padding: 8px 0 6px 7px;
+	font-size: 16px;
+	color: #b4b4b4;
+	margin-left: 5px;
+	border: 1px solid #e1e1e1;
+}
+.modal	.input_con>p{
+	position: absolute;
+	font-size: 12px;
+	height: 16px;
+	bottom: -20px;
+	left: 5px;
+}
+.modal	.keep_log{
+	font-size: 14px;
+	margin-top: 20px;
+}
+.modal	#ok_keep_pw{
+	margin-left: 5px;
+}
+.modal	.forget_pw{
+	margin-left: 110px;
+}
+.modal	.login_btn{
+	display: inline-block;
+	width: 280px;
+	margin-left: 125px;
+	border: none;
+	padding: 10px;
+	background: #ea3524;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16px;
+	cursor: pointer;
+}
+.modal	.forget_pw{
+	color: #999;
+}
+
+.modal_hide{
+	display: none;
+}
+.cover{
+	position: fixed;
+	z-index: 99;
+	background: #000;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: 0.4;
+}

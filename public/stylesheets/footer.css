@@ -1,0 +1,9 @@
+/*页面底部*/
+.footer{
+	border-top: 1px solid #ededed;
+	background: #fff;
+	padding: 40px 0 80px 0;
+}
+.copyright{	
+	text-align: center;
+}

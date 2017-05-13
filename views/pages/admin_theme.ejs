@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h2><%= title %></h2>
+			</div>
+			<form class="form-horizontal" method="post" action="/admin/theme/new">
+				
+				<div class="form-group">
+					<label for="inputTitle" class="col-xs-2 control-label">优惠券主题名称</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputTitle" class="form-control" name="theme[name]" value="">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputImg" class="col-xs-2 control-label">优惠券主题图片地址</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputImg" class="form-control" name="theme[img]" value="">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="inputKey" class="col-xs-2 control-label">优惠券网址</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputKey" class="form-control" name="theme[link]" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputIntro" class="col-xs-2 control-label">商城介绍</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputIntro" class="form-control" name="theme[describe]" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputSite" class="col-xs-2 control-label">客服电话</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputSite" class="form-control" name="theme[phone]" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="col-xs-offset-5 col-xs-10">
+						<button class="btn btn-default" type="submit">录入</button>
+					</div>
+				</div>
+
+			</form>	
+					
+		</div>
+	</div>
+	
+	
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

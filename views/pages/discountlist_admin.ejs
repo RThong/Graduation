@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<style>
+		
+	</style>
+</head>
+<body>
+    <div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h2><%= title %></h2>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>商品名称</th>
+						<th>商品类型</th>
+						<th>来源</th>
+						<th>录入时间</th>
+						<th>查看</th>
+						<th>修改</th>
+						<th>删除</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i=0; i<discounts.length;i++){ %>
+					<tr class="item-id-<%= discounts[i]._id %>">
+						
+						<td><%= discounts[i].title %></td>
+						
+						<% if(discounts[i].category){ %>
+							<td><%= discounts[i].category.name %></td>
+						<% }else{ %>
+							<td></td>
+						<% } %>
+						
+						<% if(discounts[i].type == '1'){ %>
+							<td>管理员发布</td>
+						<% }else{ %>
+							<td>用户爆料</td>
+						<% } %>
+
+						<td><%= moment(discounts[i].meta.updateAt).format('YYYY/MM/DD') %></td>
+						<td><a href="/discount/<%= discounts[i]._id %>">查看</a></td>
+						<td><a href="/admin/discount/update/<%= discounts[i]._id %>">修改</a></td>
+						<td>
+						<button type="button" data-id="<%= discounts[i]._id %>" class="btn btn-danger del">删除</button></td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+<!-- <script type="text/javascript" src="/javascripts/delete.js"></script> -->
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

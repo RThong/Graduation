@@ -1,0 +1,136 @@
+.main_head{
+	background: #fff;
+}
+.main_head .path{
+	padding: 10px 35px;
+	font-size: 14px;
+	border-bottom: 1px dashed #f0f0f0;
+}
+.main_head .content{
+	padding: 20px 35px;
+}
+.main_head .content>a{
+	display: inline-block;
+	border: 1px solid #e6e6e6;
+}
+.main_head .content>a>img{
+	display: inline-block;
+	width: 200px;
+	height: 100px;
+}
+.main_head .info{
+	width: 800px;
+	padding-left: 50px;
+	color: #666;
+	font-size: 14px;
+}
+.main_head .title>span{
+	font-size: 20px;
+	font-weight: 700;
+	color: #333;
+}
+.main_head .title>a{
+	padding-left: 5px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #3366cc;
+}
+.main_head .mall_des{
+	line-height: 20px;
+	margin-top: 20px;
+}
+.main_head .mall_des span{
+	font-weight: 700;
+}
+.main_head .mall_link{
+	margin-top: 20px;
+	color: #ea3524;
+	border: 1px solid #ea3524;
+	padding: 3px 15px;
+}
+
+
+.mall_content{
+	margin-top: 30px;
+	margin-bottom: 10px;
+}
+.mall_content .md_title h4{
+	font-weight: 700;
+	color: #444;
+} 
+.mall_content .quan_list{
+	margin-top: 10px;
+	padding: 20px 35px;
+	background: #fff;
+}
+.mall_content .quan_box{
+	margin-right: 38px;
+	margin-bottom: 20px;
+}
+.mall_content .quan_list ul{
+	margin-right: -38px;
+}
+
+.mall_content .quan_list .quan_box a{
+	position: relative;
+	display: inline-block;
+	width: 175px;
+	height: 200px;
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  color: #666;
+}
+.mall_content .quan_list .quan_box img{
+	display: block;
+	width: 120px;
+	height: 60px;
+	margin: 15px auto 0 auto;
+}
+.mall_content .quan_list .quan_box i{
+	position: relative;
+	top: -8px;
+	right: -8px;
+	font-size: 20px;
+	color: #ff4c5b;
+	font-weight: 500;
+}   
+.mall_content .quan_list .quan_box .coupon_info{
+	display: block;
+	height: 61px;
+	text-align: center;
+	font-size: 16px;
+	color: #444;
+	cursor: pointer;
+}
+.mall_content .coupon_info span{
+	margin-top: 10px;
+	display: block;
+	height: 24px;
+	line-height: 24px;
+	font-size: 32px;
+	color: #ff4c5b;
+	font-family: Arial;
+	font-weight: 700;
+	font-style: normal;
+}
+.mall_content .get_btn{
+	position: absolute;
+	text-align: center;
+	height: 39px;
+	width: 173px;
+	background: #fff2f3;
+	line-height: 39px;
+	font-size: 14px;
+	color: #8a4545;
+	bottom: 0px;
+	left: 0px;
+}
+
+.mall_content .quan_box a:hover .get_btn{
+	background: #f95c68;
+	color: #fff;
+}
+.mall_content .quan_box a:hover{
+	border: 1px solid #f95c68;
+}
+     

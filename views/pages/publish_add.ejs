@@ -1,0 +1,82 @@
+<% include ../includes/header %>
+<div class="container">
+	<div class="publish_wrap clearfix">
+		<div class="publish_main fl">
+			<h2 class="publish_title">
+				单品爆料	
+			</h2>
+			<form class="publish_info" method="post" action="/my/publish/add/new" enctype="multipart/form-data">
+				<input type="hidden" name="discount[user]" value="<%= user._id %>">
+				<input type="hidden" name="discount[type]" value="2">
+				<input type="hidden" name="discount[verify]" value="0">
+				<div class="buy_link">
+					<label for="inputLink">购买链接: </label>
+					<input type="text" id="inputLink" name="discount[site]">
+				</div>
+				<div class="buy_title">
+					<label for="inputTitle">标题: </label>
+					<input type="text" id="inputTitle" name="discount[title]">
+				</div>
+				<div class="buy_category">
+					<label for="inputCategory">分类: </label>
+					<select id="inputCategory" name="discount[category]">
+						<option value=""  style="color: #b6b6b6" disabled selected>请选择类型</option>
+					<% categories.forEach(function(item){%>
+						<option value="<%= item._id %>"><%= item.name %></option>
+					<% }) %>
+					</select>
+				</div>
+				<div class="buy_keyword">
+					<label for="inputKeyword">关键词: </label>
+					<input type="text" id="inputKeyword" name="discount[key]">
+				</div>
+				<div class="buy_img">
+					<label class="fl" for="inputUpload">上传图片: </label>
+					<a class="add_upload" href="javascript:;">
+						<span class="add_icon">+</span>
+						<span class="add_txt">上传封面图片</span>
+						<input type="file" class="upload_img" name="upload" id="inputUpload" onchange="showPreview(this)">
+					</a>
+					<img id="portrait" src="" width="110px" height="110px"> 			
+				</div>
+				<div class="buy_intro">
+					<label for="inputIntro">爆料理由: </label>
+					<input type="text" id="inputIntro" name="discount[intro]">
+				</div>
+
+				<div class="form_submit">
+					<label for=""></label>
+					<input type="submit" class="btn btn_submit" value="发布爆料">
+				</div>
+			</form>
+		</div>
+
+		<div class="publish_side fl">
+			<div class="publish_explain">
+				<div class="pub_tlt">
+					<span class="pub_block"></span>优质爆料说明
+				</div>
+				<ul class="pub_doc">
+					<li>1. 优惠来源是主流商城</li>
+					<li>2. 爆料理由需清晰简单</li>
+					<li>3. 一手爆料，被加精率高</li>
+					<li>4. 各种神价是大家的最爱</li>
+					<li>小编将根据各方面元素进行评选</li>
+				</ul>
+			</div>
+
+			<div class="publish_explain">
+				<div class="pub_tlt">
+					<span class="pub_block"></span>奖励说明
+				</div>
+				<ul class="pub_doc">
+					<li>采纳到全民爆料频道，将奖励30积分和30经验1金币。</li>
+					<li>采纳并被加精到首页，将追加奖励50积分和50经验以及金币。</li>
+					<li>爆料提交后小编会尽快进行处理，若未被评上以及其他情况恕不做另行通知。</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="/javascripts/publish_pic.js"></script>
+<% include ../includes/footer %>

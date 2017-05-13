@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/stylesheets/signupin.css">
+</head>
+
+<body>
+	<div class="page_head">
+		<div class="container">
+			<h1 class="logo_block">
+				<a href="/" class="logo">优惠推荐<br/>第一站</a>
+			</h1>			
+		</div>
+	</div>
+
+	<div class="main_con">
+		<div class="container">
+			<div class="main_tit">
+				<h3>立即注册:</h3>
+			</div>
+			<form class="form_con" method="post" action="/user/signup">
+				<div class="form_list clearfix">
+					<label class="fl input_tit" for="inputUsername">帐号 :</label>
+					<div class="input_con fl">
+						<input id="inputUsername" class="input_content" type="text" placeholder="请输入帐号" name="user[username]">
+						<p class="alert alert_user">请输入帐号</p>
+					</div>
+				</div>
+				<div class="form_list clearfix">
+					<label class="fl input_tit" for="inputPassword">密码 :</label>
+					<div class="input_con fl">
+						<input id="inputPassword" class="input_content" type="text" placeholder="请输入密码" name="user[password]">
+						<p class="alert alert_pass">请输入密码</p>
+					</div>
+				</div>
+				<div class="form_list clearfix">
+					<label class="fl input_tit" for="inputConfirm">确认密码 :</label>
+					<div class="input_con fl">
+						<input id="inputConfirm" class="input_content" type="text" placeholder="请确认密码">
+						<p class="alert alert_confirm">请确认密码</p>
+					</div>
+				</div>
+				<input class="signup_btn btn" type="submit" value="立即注册">
+			</form>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<p class="copyright">Copyright © 2017 rtHong's Personal website. All rights reserved.</p>
+		</div>
+	</div>
+<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/signupin.js"></script>
+</body>
+</html>

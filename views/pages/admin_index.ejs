@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<style>
+		body { padding-top: 70px; }
+	</style>
+</head>
+<body>
+	
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="/admin" class="navbar-brand">管理员页面</a>
+			</div>
+			<p class="navbar-text navbar-right">
+				<span class="user-id">欢迎您,<%= user.username %></span>
+				<span>&nbsp;&nbsp;</span>
+				<a href="/logout">退出</a>
+			</p>
+			
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="btn-group" role="group" aria-label="...">
+		  <a href="/admin/discount" type="button" class="btn btn-default">发布信息</a>
+		  <a href="/admin/verify" type="button" class="btn btn-default">爆料审核</a>
+		  <a href="/admin/discountlist" type="button" class="btn btn-default">管理优惠信息</a>
+		  <a href="/admin/theme" type="button" class="btn btn-default">优惠券主题录入</a>
+		  <a href="/admin/coupon_category" type="button" class="btn btn-default">优惠券录入</a>
+		</div>
+	</div>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

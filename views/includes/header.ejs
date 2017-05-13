@@ -1,0 +1,135 @@
+<% include ./head %>
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_d7awbdaohat0rudi.css" rel="stylesheet">
+<link rel="stylesheet" href="/stylesheets/header.css">
+<% if(filename){ %>
+<link rel="stylesheet" href="/stylesheets/<%= filename %>.css">
+<% }else{} %>
+
+
+</head>
+<body>
+	<!-- 网站顶部 -->
+	<div class="top_sitebar">
+		<div class="container clearfix">
+			<div class="sitebar_entry fl">
+				<div class="user_info">
+				<% if(!user){ %>
+					<span class="login_modal">请登录</span>
+					<span><a href="/signup">注册</a></span>
+				<% }else{ %>
+					<div class="user_list">
+						<a class="nickname" href="">
+							<img width="20px" src="<%= user.avatar %>" alt="">
+							<span class="username"><%= user.username %></span>
+							<i class="fa fa-caret-down"></i>
+						</a>	
+						<ul class="dropdown">
+							<li><a class="infont" href="/my/index"><i class="iconfont icon-iconfont"></i><span>个人中心</span></a></li>
+							<li><a href=""><i class="iconfont icon-youhuiquan"></i><span>我的优惠券</span></a></li>
+							<li><a href="/my/publish/add"><i class="iconfont icon-xie"></i><span>我要爆料</span></a></li>
+							<li><a href="/logout"><i class="iconfont icon-tuichu1"></i><span>退出登录</span></a></li>
+						</ul>
+					</div>
+				<% } %>
+				</div>
+			
+				
+			</div>
+			<div class="sitebar_topnav fr">
+				<ul class="clearfix">
+					<li class="fl"><a target="_blank" href="javascripts:;">免费领券</a><span class="fg_line">|</span></li>
+					<li class="fl"><a target="_blank" href="javascripts:;">积分换礼</a><span class="fg_line">|</span></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- 网站头部 -->
+	<div class="header">
+		<div class="container">
+			<h2 class="site_logo fl">
+				<a class="mc" href="/">优惠推荐<br>第1站</a>
+			</h2>
+
+			<div class="site_category fl">
+				<ul class="clearfix">
+					<li class="icon_li fl">
+						<span class="icon"><i class="fa fa-heart"></i></span>
+						<span>职业买手爆料</span>
+					</li>
+					<li class="icon_li fl">
+						<span class="icon"><i class="fa fa-bookmark"></i></span>
+						<span>中立态度甄选</span>
+					</li>
+					<li class="icon_li fl">
+						<span class="icon"><i class="fa fa-compass"></i></span>
+						<span>品质消费推荐</span>
+					</li>
+				</ul>
+			</div>
+			<div class="site_search fr">
+				<div class="search_box">
+					<form method="get" action="">
+						<div class="search_input">
+							<input type="text" id="keywords" class="keywords" name="s" value placeholder="请输入想找的宝贝"/>
+							<button type="submit" class="search_submit" value=""><i class="fa fa-search"></i></button>
+						</div>
+						
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- 导航栏 -->
+	<div class="navbar">
+		<div class="container clearfix">
+			<ul class="clearfix">
+				<li class="nav_li fl"><a class="cw" href="/">首页</a></li>
+				<li class="nav_li fl"><a class="cw" href="">全民爆料</a></li>
+				<li class="nav_li fl"><a class="cw" href="">好货清单</a></li>
+				<li class="nav_li fl"><a class="cw" href="">福利</a></li>
+			</ul>
+		</div>
+	</div>	
+	
+	<!-- 模态框 -->
+	<div class="cover modal_hide"></div>
+	<div class="modal modal_hide">
+	  <a class="modal_close">×</a>
+		<div class="login_title clearfix">
+			<span class="fl login_doc">立即登录</span>
+			<a class="fr signup_doc" href="/signup">注册帐号</a>
+		</div>
+		<div class="login_main">
+
+			<form method="post" action="/user/signin">
+				<div class="username clearfix">
+					<label class="fl input_tit" for="inputUsername">帐号 :</label>
+					<div class="input_con fl">
+						<input id="inputUsername" type="text" placeholder="请输入帐号" name="username">
+						<p class="alert_user">请输入帐号</p>
+					</div>
+				</div>
+				<div class="password clearfix">
+					<label class="fl input_tit" for="inputPassword">密码 :</label>
+					<div class="input_con fl">
+						<input id="inputPassword" type="text" placeholder="请输入密码" name="password">
+						<p class="alert_pass">请输入密码</p>
+					</div>
+				</div>
+				<div class="keep_log clearfix">
+					<label class="input_tit fl" for=""></label>
+					<input type="checkbox" id="ok_keep_pw" checked="checked">
+					<label for="ok_keep_pw">以后自动登录</label>
+					<a class="forget_pw" href="">忘记密码?</a>
+				</div>
+				<input class="login_btn" type="submit" value="登录">	
+			</form>
+		</div>
+	</div>
+<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/header.js"></script>

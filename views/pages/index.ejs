@@ -1,0 +1,201 @@
+
+<% include ../includes/header %>
+<!-- 广告 -->
+	<div class="advertisement ">
+		<div class="container clearfix">
+			<div class="sign fr">
+				
+				<% if(!user){ %>
+				<div class="nosign_box">
+					<a href="jvascript:;" class="sign_btn">
+						<span class="sign_date"></span>
+						<span class="sign_txt">每日签到领积分</span>
+					</a>
+					<p class="start_sign">连续签到获得更多积分~</p>
+				</div>
+				<% }else{if(isSign == '0'){ %>
+				<div class="nosign_box">
+					<a href="jvascript:;" class="sign_btn" data-user="<%= user._id %>">
+						<span class="sign_date"></span>
+						<span class="sign_txt">每日签到领积分</span>
+					</a>
+					<p class="start_sign">连续签到获得更多积分~</p>
+				</div>
+				<% }else{ %>
+				<div class="oksign_box">					
+					<a href="jvascript:;" class="sign_success">
+						<span class="sign_date"></span>
+						<span class="sign_txt">签到成功</span>
+					</a>
+					<p class="start_sign" style="color: #999">您已连续签到<%= sign.signDays %>天</p>
+				</div>
+				<% }} %>
+				
+				<div class="oksign_box sign_hide">					
+					<a href="jvascript:;" class="sign_success">
+						<span class="sign_date"></span>
+						<span class="sign_txt">签到成功</span>
+					</a>
+					<p class="start_sign" style="color: #999">您已连续签到<span class="sign_days"></span>天</p>
+				</div>
+
+				<div class="sign_foot">
+					<a target="_blank" href="">爆料有奖</a>
+					<a target="_blank" href="">积分兑换</a>
+				</div>
+			</div>
+			
+			
+			
+
+
+			<div class="carousel">
+				<ul class="screen">
+					<li data-id="0" class="img show">
+						<a href="javascript:;">
+							<img src="images/58fdf664N89286242.jpg" alt="">
+						</a>
+					</li>
+					<li data-id="1" class="img">
+						<a href="javascript:;">
+							<img src="images/59004d2dNe8355e7a.png" alt="">
+						</a>
+					</li>
+					<li data-id="2" class="img">
+						<a href="javascript:;">
+							<img src="images/58f8909aN48decdd1.jpg" alt="">
+						</a>
+					</li>
+					<li data-id="3" class="img">
+						<a href="javascript:;">
+							<img src="images/58fee2c5Ne7c949e4.jpg" alt="">
+						</a>
+					</li>
+					<li class="label-left">
+						<a><</a>
+					</li>
+					<li class="label-right">
+						<a>></a>
+					</li>
+				</ul>
+				<ul class="label-wrap">
+					<li class="label active"></li>
+					<li class="label"></li>
+					<li class="label"></li>
+					<li class="label"></li>
+				</ul>
+			</div>
+			
+		</div>
+	</div>
+	
+	<!-- 推荐 -->
+	<div class="rec_title">
+		<div class="container">
+			<h4 class="title_content">每日超值推荐</h4>
+		</div>
+	</div>
+
+	<div class="rec_content">
+		<div class="container clearfix">
+
+			<!-- 热门推荐 -->
+			<div class="hot_container fr">
+				<div class="hot_title">
+					<span class="red_block"></span>
+					<span class="tit_content">热门推荐</span>
+				</div>
+
+				<div class="hot_list clearfix">
+					<div class="hot_pic fl">
+						<a href="">
+							<img style="width: 64px;" src="https://i.huim.com/contents/14827585534999.png!45x45.jpg" alt="">
+						</a>
+					</div>
+					<div class="hot_info fl">
+						<div class="hot_tit">
+							<a href=""><p>10点开抢# 聚划算4月4日 秒杀/免单/半价活动内容 超</p></a>
+						</div>
+						<div class="hot_action">
+							<span class="hot_num">浏览1000</span>
+							<span class="hot_comment">评论2750</span>
+						</div>
+					</div>			
+				</div>
+				<div class="hot_list clearfix">
+					<div class="hot_pic fl">
+						<a href="">
+							<img style="width: 64px;" src="https://i.huim.com/contents/14827585534999.png!45x45.jpg" alt="">
+						</a>
+					</div>
+					<div class="hot_info fl">
+						<div class="hot_tit">
+							<a href=""><p>10点开抢# 聚划算4月4日 秒杀/免单/半价活动内容 超</p></a>
+						</div>
+						<div class="hot_action">
+							<span class="hot_num">浏览1000</span>
+							<span class="hot_comment">评论2750</span>
+						</div>
+					</div>			
+				</div>
+			</div>
+			<!-- 每日推荐 -->
+
+			<div class="rec_container">
+				<% discounts.forEach(function(item){ %>
+				<div class="rec_list shadow clearfix">
+					<div class="list_pic fl">
+						<a href="/discount/<%= item.id %>" target="_blank"><img width="215px" src="<%= item.img %>" alt=""></a>
+					</div>
+					<div class="list_info fl">
+						<p class="list_tit">
+							<a href="/discount/<%= item.id %>" target="_blank"><%= item.title %></a>
+						</p>
+						<p class="list_price">
+							<a href="/discount/<%= item.id %>" target="_blank"><%= item.key %></a>
+						</p>
+						<div class="list_doc">
+							<%= item.intro %>
+						</div>
+						<div class="list_action">
+							<p class="list_page">
+								<span class="pub_time"><i class="fa fa-clock-o"></i> 今天6:30</span>
+								<span class="bro_num"> &nbsp&nbsp&nbsp&nbsp1000人浏览</span>
+							</p>
+							<a class="btn_buy" target="_blank" href="<%= item.site %>"><i class="fa fa-shopping-cart"></i> &nbsp前往购买</a>
+						</div>
+					</div>
+				</div>
+				<% }) %>
+				
+			</div>
+
+			<!-- 左道航 -->
+			<div class="side_nav">
+				<div class="side_nav_tit">
+					<a class="side_nav_img" href=""><img style="width: 18px;" src="images/class.png" alt=""></a>
+					<a class="side_title" href=""><p>分类筛选</p></a>
+				</div>
+
+				<div class="side_nav_container">
+					<ul>
+						<li class="cat_list"><a href="">全部推荐</a></li>
+					
+					<% categories.forEach(function(item){ %>
+						<li class="cat_list"><a href="/discount/category/<%= item._id %>"><%= item.name %></a></li>
+					<% }) %>
+				
+					</ul>
+				</div>
+			</div>		
+		</div>
+				
+	</div>
+
+	
+
+<script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/moment.js"></script>
+<script src="/javascripts/roundabout.js"></script>
+<script src="/javascripts/index.js"></script>
+<% include ../includes/footer %>

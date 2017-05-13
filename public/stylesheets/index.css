@@ -1,0 +1,347 @@
+/*轮播图！！！！！！！！！*/
+.carousel{
+	position: relative;
+	width: 790px;
+	height: 340px;
+}
+
+.img{
+	position: absolute;
+	display: none;
+}
+.screen>img>a{
+	display: inline-block;
+}
+.screen>.img>a>img{
+	width: 790px;
+	height: 340px;
+}
+.show{
+	display: block;
+}
+
+.label-left{
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	left: 10px;
+	margin-top: -15px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;	
+}
+.label-right{
+	position: absolute;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	top: 50%;
+	right: 10px;
+	margin-top: -15px;
+	text-align: center;
+	line-height: 30px;
+	cursor: pointer;	
+}
+
+.label-left>a{
+	position: relative;
+	left: -1px;
+}
+.label-left>a,.label-right>a{
+	color: #ddd;
+	font-weight: bold;
+	font-size: 200%;
+}
+.label-left>a:hover,.label-right>a:hover{
+	color: #fff;
+}
+
+.label-wrap{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 20px;
+	margin-left: -6px;
+}
+.label-wrap:after{
+	display: block;
+	content: '';
+	clear:both;
+}
+.label{
+	float: left;
+	width: 16px;
+	height: 4px;
+	background: #ddd;
+	cursor: pointer;
+	border-radius: 2px;
+	margin-left: 6px;
+	display: inline-block;
+}
+.active{
+	background: #666;
+}
+
+
+
+/*签到框*/
+.sign{
+	width: 260px;
+	height: 240px;
+	background: #fff;
+	margin-top: 50px; 
+}
+.sign .sign_btn{
+	display: block;
+	width: 170px;
+	height: 42px;
+	line-height: 42px;
+	margin: 60px auto 0 auto;
+	background-position: 0 0;
+	cursor: pointer;
+	background-image: url('/images/sign_in.png'); 
+  background-repeat: no-repeat;
+  text-align: center;
+}
+.sign .sign_date{
+	display: inline-block;
+	width: 34px;
+	height: 38px;
+	padding-top: 2px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 38px;
+	color: #000;
+	font-size: 18px;
+	font-family: Arial;
+}
+.sign .sign_txt{
+	display: inline-block;
+	line-height: 42px;
+	margin-left: 6px;
+	font-size: 14px;
+	color: #fff;
+}
+.sign_hide{
+	display: none;
+}
+
+.sign .sign_success{
+	display: block;
+	width: 170px;
+	height: 42px;
+	line-height: 42px;
+	margin: 60px auto 0 auto;
+	background-position: 0 -43px;
+	background-image: url('/images/sign_in.png');
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.sign .sign_success .sign_date{
+	position: relative;
+	left: -20px;
+}
+
+.sign .start_sign{
+	color: #8a4545;
+	text-align: center;
+	font-size: 14px;
+	margin-top: 10px;
+}
+.sign .sign_foot{
+	text-align: center;
+	margin-top: 30px;
+}
+.sign .sign_foot>a{
+	display: inline-block;
+	width: 78px;
+	height: 23px;
+	text-align: center;
+	line-height: 21px;
+	border: 1px solid #999;
+	border-radius: 2px;
+	font-size: 12px;
+	color: #5e5e5e;
+}
+.sign .sign_foot>a:hover{
+	color: #ea3524;
+}
+
+/*推荐*/
+.title_content{
+	margin-top: 20px;
+	border-bottom: 2px solid #ec3524;
+	color: #ec3524;
+	font-weight: 700;
+	font-size: 24px;
+	padding: 10px 0; 
+}
+
+.rec_content{
+	padding-top: 20px;
+	padding-bottom: 100px;
+}
+.rec_content>.container{
+	position: relative;
+}
+.rec_container{
+	width: 800px;
+}
+.rec_list{
+	position: relative;
+	padding: 20px;
+	height: 260px;
+	background: #fff;
+	margin-bottom: 20px;
+}    
+
+.list_info{
+	width: 500px;
+	margin-left: 40px;
+
+}
+.list_tit{
+	margin-bottom: 10px;
+}
+.list_tit>a{
+	color: #333;
+}
+.list_price{
+	margin-bottom: 20px;
+}
+.list_price>a{
+	color: #ec3524;
+	font-size: 24px;
+}
+.list_doc{
+	height: 65px;
+	margin: 17px 0 32px;
+	overflow: hidden;
+	line-height: 22px;
+	font-size: 12px;
+	color: #a6a4b2;
+}
+.list_action{
+	margin-top: 40px;
+}
+.list_page{
+	font-size: 14px;
+	position: absolute;
+	bottom: 20px;
+}
+.btn_buy{
+	position: absolute;
+	right: 20px;
+	bottom: 25px;
+	background: #ec3524;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	border-radius: 20px;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+}
+.btn_buy:hover{
+	background: #F26B5E;
+}
+.fa-shopping-cart,.fa-clock-o{
+	font-size: 20px
+}
+
+/*右边栏，热门推荐*/
+.hot_container{
+	width: 280px;
+	background: #fff;
+	padding: 26px 20px;
+	font-size: 12px;
+}
+.hot_title{
+	position: relative;
+	height: 18px;
+}
+.hot_title .red_block{
+	width: 5px;
+	height: 18px;
+	display: inline-block;
+	background: #ec3524; 
+}
+.hot_title .tit_content{
+	position: absolute;
+	font-size: 16px;
+	bottom: 0px;
+	left: 10px;
+	color: #000;
+	font-weight: 600;
+}
+
+.hot_list{
+	position: relative;
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+}
+.hot_info{
+	width: 155px;
+	margin-left: 10px;
+}
+.hot_action{
+	position: absolute;
+	bottom: 20px;
+}
+.hot_action .hot_num{
+	margin-right: 20px;
+}
+.hot_tit>a:hover{
+	color: #ec3524;
+}
+
+
+/*左导航*/
+.side_nav{
+	position: absolute;
+	top: 0px;
+	left: -100px;
+	width: 78px;
+	font-size: 14px;
+	text-align: center;
+}
+.side_nav_tit{
+	background: #ec3524;
+	height: 78px;
+	position: relative;
+}
+.side_nav_img{
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: #fff; 
+	border-radius: 16px;
+	line-height: 32px;
+	position: absolute;
+	left: 23px;
+	top: 13px;
+}
+.side_nav_img>img{
+	position: relative;
+	top: 2px;
+}
+.side_title{
+	color: #fff;			
+	position: relative;
+	top: 50px;
+}
+.side_nav_container{
+	background: #fff;
+}
+.cat_list{
+	padding: 7px 0;
+	color: #5e5e5e;
+}
+.cat_list:hover{
+	background: #ec3524;
+}
+.cat_list:hover>a{
+	color: #fff;
+}

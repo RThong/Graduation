@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h2><%= title %></h2>
+			</div>
+			<form class="form-horizontal" method="post" action="/admin/coupon_category/new">
+				
+				<div class="form-group">
+					<label for="inputTitle" class="col-xs-2 control-label">优惠券名称</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputTitle" class="form-control" name="category[title]" value="">
+					</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="inputTheme" class="col-xs-2 control-label">优惠券主题</label>
+					<div class="col-xs-8">
+				
+						<select id="inputTheme" name="category[theme]" class="form-control" >
+							<option value=""  style="color: #b6b6b6" disabled selected>请选择类型</option>
+							<% themes.forEach(function(item){ %>
+							<option value="<%= item._id %>"><%= item.name %></option>
+							<% }) %>
+							
+						
+						</select>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputPrice" class="col-xs-2 control-label">优惠券金额</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputPrice" class="form-control" name="category[price]" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputCount" class="col-xs-2 control-label">优惠券数量</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputCount" class="form-control" name="category[count]" value="">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<label for="inputDate" class="col-xs-2 control-label">有效期至</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputDate" class="form-control" name="category[expirationtime]" value="">
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="inputPoint" class="col-xs-2 control-label">兑换积分</label>
+					<div class="col-xs-8">
+						<input type="text" id="inputPoint" class="form-control" name="category[point]" value="">
+					</div>
+				</div>
+
+
+				<div class="form-group">
+					<div class="col-xs-offset-5 col-xs-10">
+						<button class="btn btn-default" type="submit">录入</button>
+					</div>
+				</div>
+
+			</form>	
+					
+		</div>
+	</div>
+	
+	
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

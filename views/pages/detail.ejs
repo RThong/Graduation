@@ -1,0 +1,204 @@
+<% include ../includes/header %>
+<div class="rec_content">
+		<div class="container clearfix">
+		
+			<!-- 热门推荐 -->
+			<div class="hot_container fr">
+				<div class="hot_title">
+					<span class="red_block"></span>
+					<span class="tit_content">分享作者</span>
+				</div>
+				
+				<div class="hot_list pub_user clearfix">
+					<div class="hot_pic fl">
+						
+						<img style="width: 50px;" src="<%= user.avatar %>" alt="">
+						
+					</div>
+					<div class="hot_info fl">
+						<p class="hot_tit"><%= discount.user.username %></p>
+						
+					</div>
+
+				</div>
+
+				<div class="hot_title">
+					<span class="red_block"></span>
+					<span class="tit_content">热门推荐</span>
+				</div>
+
+				<div class="hot_list clearfix">
+					<div class="hot_pic fl">
+						<a href="">
+							<img style="width: 64px;" src="https://i.huim.com/contents/14827585534999.png!45x45.jpg" alt="">
+						</a>
+					</div>
+					<div class="hot_info fl">
+						<div class="hot_tit">
+							<a href=""><p>10点开抢# 聚划算4月4日 秒杀/免单/半价活动内容 超</p></a>
+						</div>
+						<div class="hot_action">
+							<span class="hot_num">浏览1000</span>
+							<span class="hot_comment">评论2750</span>
+						</div>
+					</div>			
+				</div>
+				<div class="hot_list clearfix">
+					<div class="hot_pic fl">
+						<a href="">
+							<img style="width: 64px;" src="https://i.huim.com/contents/14827585534999.png!45x45.jpg" alt="">
+						</a>
+					</div>
+					<div class="hot_info fl">
+						<div class="hot_tit">
+							<a href=""><p>10点开抢# 聚划算4月4日 秒杀/免单/半价活动内容 超</p></a>
+						</div>
+						<div class="hot_action">
+							<span class="hot_num">浏览1000</span>
+							<span class="hot_comment">评论2750</span>
+						</div>
+					</div>			
+				</div>
+			</div>
+			<!-- 每日推荐 -->
+			<div class="detail_content">
+				<div class="detail_path">
+					<a href="">首页</a>
+					<span>></span>
+					<a href="">天猫</a>
+					<span>/</span>
+					<a href="">食品酒水</a>
+					<span>></span>
+					<a class="detail_tit_s" href=""><%= discount.title %></a>
+				</div>
+				<h4 class="detail_tit">
+					<%= discount.title %>
+					<span class=""><%= discount.key %></span>		
+				</h4>
+				<div class="detail_main clearfix">
+					<div class="detail_pic fl">
+						<a href=""><img width="234px;" src="<%= discount.img %>" alt=""></a>
+					</div>
+					<div class="detail_info fl">
+						<div class="detail_reason clearfix">
+						  <span class="fl"><i class="fa fa-thumbs-up"></i> 爆料理由 </span>
+							<p><%= discount.intro %></p>
+						</div>
+						<div class="detail_action clearfix">
+							<span class="pub_time"><%= moment(discount.meta.updateAt).format('MM月DD日 HH:mm:ss') %></span>
+							
+							<a href="<%= discount.site %>" target="_blank" class="btn_buy fr">前往购买</a>
+						</div>
+					</div>
+				</div>
+
+				<!-- 标语 -->
+				<div class="slogan clearfix">
+					<div class="slogan_pic fl">
+						<img src="../images/smile.png" alt="">
+					</div>
+					<p class="slogan_doc fl">真的值得购是汇集网购优惠的分享频道，主打更快、更广、更多的特色，如果您发现了超值的网购优惠信息，也可以进行爆料分享；</p>
+				</div>
+
+				<!-- 评论区 -->	
+				<div id="comment" class="comment_area">
+					<div class="comment_title">
+						<span><i class="fa fa-wechat"></i> 评论</span>
+					</div>
+					<div class="comment_main clearfix">
+					<% if(!user){ %>
+						<div class="comment_left fl">
+							<img class="default_user_pic" width="60px;" src="https://i.huim.com/users/14184718036496.jpg" alt="">
+							<a class="login comment_btn" href="javascript:;">登录</a>
+							
+						</div>
+						<div class="comment_right fl">
+							<p>想评论,请先 <a class="login" href="javascript:;">登录</a> 哦~</p>
+						</div>
+					<% }else{ %>
+						<form id="commentForm">
+							<input id="discountId" type="hidden" name="comment[discount]" value="<%= discount._id%>">
+							<input id="cur_user" type="hidden" name="comment[user]" value="<%= user._id %>">
+							<div class="comment_pic fl">
+								<div class="current_user">
+									<img class="current_user_pic" width="60px;" src="<%= user.avatar %>" alt="">
+									<span class="current_user_uname" title="<%= user.username %>"><%= user.username %></span>
+								</div>
+							</div>
+
+							<div class="comment_info fl">
+								<div class="comment_box">
+									<textarea id="comment_pub" placeholder="共同建设愉快的讨论环境，发表优秀评论，还可获得意外奖励！" class="comment_textarea" name="comment[content]" id=""></textarea>
+								</div>
+								<div class="comment_action clearfix">
+									<a href="javascript:;" class="btn btn_pub fr">发表</a>
+								</div>
+							</div>
+						</form>
+					<% } %>
+					</div>
+
+					<!-- 评论 -->
+					<div class="comment_dec" id="target-comment">
+					<% comments.forEach(function(item){ %>
+						<div id="comment_list" class="clearfix">
+							<input id="comment_id" type="hidden" name="comment[_id]" value="<%= item._id %>">
+							<div class="comment_user_info fl">
+								<img width="50px" src="https://i.huim.com/users/14184718036496.jpg" alt="" class="userinfo_avatar">
+								<span class="userinfo_name"><%= item.user.username %></span>
+							</div>
+							
+							<div class="comment_content fl clearfix">
+								<div class="top_info clearfix">
+									<span class="comment_time"><%= moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss') %></span>
+									<span class="comment_floor fr"><%= comments.length - comments.indexOf(item) %>#</span>
+								</div>
+								<p class="com_content"><%= item.content %></p>
+								<div class="com_action fr clearfix">
+								<% if(user && item.zanUser.indexOf(user._id) >= 0){ %>
+									<a title="取消赞" class="csupport fl on" href="javascript:;" data-issupport="1"><i class="iconfont icon-iconfontpraise"></i><span class="csupport_count"><%= item.zan %></span>
+									</a>
+								<% }else{ %>
+									<a title="赞" class="csupport fl" href="javascript:;" data-issupport="0"><i class="iconfont icon-iconfontpraise"></i><span class="csupport_count"><%= item.zan %></span>
+									</a>
+								<% } %>
+								</div>
+							</div>
+						</div>
+					<% }) %>
+						
+						
+					</div>
+				</div>
+			</div>
+					
+		</div>
+				
+	</div>
+
+	<div class="left_shortcut">
+		<a href="javascript:;" class="shortcut_share">
+			<i class="iconfont icon-fenxiang"></i><span>分享</span>
+		</a>
+		<% if(user && user.collects.indexOf(discount._id) >= 0){ %>
+		<a href="javascript:;" data-flag="1" class="collect_btn has_collect">
+			<i class="iconfont icon-shoucang1"></i><span>已收藏</span>
+		</a>
+		<% }else{ %>
+		<a href="javascript:;" data-flag="0" class="collect_btn">
+			<i class="iconfont icon-shoucang"></i><span>收藏</span>
+		</a>
+		<% } %>
+		<a href="#comment" class="comments_btn">
+			<i class="iconfont icon-groupcopy5"></i>
+			<% if(comments.length>0){ %>
+			<span><%= comments.length %></span>
+			<% }else{ %>
+			<span>评论</span>
+			<% } %>
+		</a>
+	</div>
+
+<script type="text/javascript" src="/javascripts/moment.js"></script>
+<script type="text/javascript" src="/javascripts/detail.js"></script>
+<% include ../includes/footer %>

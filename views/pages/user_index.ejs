@@ -1,0 +1,168 @@
+<% include ../includes/header %>
+	<div class="user_content">
+		<div class="container clearfix">
+			<div class="left_nav fl">
+				<ul>
+					<li class="personal_list"><a href="" class="list_link cur_list">个人中心</a></li>
+					<li class="personal_list"><a href="" class="list_link cur_list">资产明细</a></li>
+					<li class="personal_list"><a href="" class="list_link cur_list">消息中心</a></li>
+					<li class="personal_list"><a href="" class="list_link cur_list">账户设置</a></li>
+				</ul>
+			</div>
+			<div class="main_page fl">
+				<div class="main_info">
+					<!-- 头部 -->
+					<div class="my_box clearfix">
+						<img class="user_pic fl" src="<%= user.avatar %>" alt="">
+						<div class="my_info clearfix">
+							<p class="nickname"><%= user.username %></p>
+							<div class="my_info_l fl">
+								<p class="my_grade">
+									<span><a href="" class="my_level">等级</a></span>
+									<span>LV0</span>
+								</p>
+								<p class="my_exp">
+									经验 : <span class="my_exp_num">20</span>
+								</p>
+							</div>
+
+							<div class="my_info_r fl">
+								<p>积分<span><%= user.point %></span> (<span><a href="">兑换优惠券</a></span> )</p>
+								<p>金币<span>20</span></p>
+							</div>
+						</div>
+					</div>
+					<!-- 列表 -->
+					<ul class="tab_list clearfix">
+						<div class="tab_line"></div>
+
+						<li class="tab_box tab_current fl">
+							<a href="javascript:;" class="tab">首页</a>
+							<p class="tab_scale"></p>							
+						</li>
+						<li class="tab_box fl">
+							<a href="javascript:;" class="tab">评论(<%= comments.length %>)</a>
+							<p class="tab_scale"></p>
+						</li>
+						<li class="tab_box fl">
+							<a href="javascript:;" class="tab">爆料(<%= discounts.length %>)</a>
+							<p class="tab_scale"></p>
+						</li>
+						<li class="tab_box fl">
+							<a href="javascript:;" class="tab" id="collect_tit">收藏(<%= collects.length %>)</a>
+							<p class="tab_scale"></p>
+						</li>
+						<li class="tab_box fl">
+							<a href="javascript:;" class="tab">优惠券(0)</a>
+							<p class="tab_scale"></p>
+						</li>
+					</ul>
+					<!-- 内容框 -->
+					<div class="my_list">
+						<div class="info_content current_content">
+							<div class="my_title comment_top clearfix">
+								<h3 class="fl">评论</h3>
+								<a class="fr" href="">更多评论></a>
+							</div>
+							<ul class="my_comment common_box">
+								<% comments.forEach(function(item){ %>
+								<li class="clearfix">
+									<img class="headpic fl" width="50px" src="<%= user.avatar %>" alt="">
+									<div class="content_box fl">
+										<div class="content_info_box clearfix">
+											<p class="content_info con_ell fl"><%= item.content %></p>
+
+											<span class="content_time fr"><%= moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss') %></span>
+										</div>
+										<div class="content_goods clearfix">
+											<img class="fl" width="60px" height="60px" src="<%= item.discount.img %>" alt="">
+											<div class="content_goods_info fl link">
+												<% if(item.discount.type == '1'){ %>
+												<a href="/discount/<%= item.discount._id %>#comment" target="_blank" class="commen_goods_tit"><%= item.discount.title %></a>
+												<% }if(item.discount.type == '2'){ %>
+												<a href="/publish/<%= item.discount._id %>#comment" target="_blank" class="commen_goods_tit"><%= item.discount.title %></a>
+												<% } %>
+
+											</div>
+										</div>
+									</div>
+								</li>
+								<% }) %>
+							</ul>
+
+							<div class="my_title clearfix">
+								<h3 class="fl">爆料</h3>
+								<a class="fr" href="">更多爆料></a>
+							</div>
+							<ul class="my_pulish common_box">
+								<% discounts.forEach(function(item){ %>
+								<li class="clearfix">
+									<img class="fl" width="50px" height="50px" src="<%= item.img %>" alt="">
+									<div class="content_box fl">
+										<div class="content_info_box clearfix">
+											<p class="content_info con_ell fl link"><a target="_blank" href="/publish/<%= item._id %>"><%= item.title %></a></p>
+											<span class="content_time fr"><%= moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss') %></span>
+										</div>
+										<% if(!item.status){ %>
+										<p class="publish_statu">状态：正在审核...</p>
+										<% }else{if(item.status < 10){ %>
+										<p class="publish_statu">状态：已采纳</p>
+										<% }else if(item.status == 11){ %>
+										<p class="publish_statu">状态：未采纳（价格优势不足）</p>
+										<% }else if(item.status == 12){ %>
+										<p class="publish_statu">状态：未采纳（已有该爆料）</p>
+										<% }} %>
+									</div>
+								</li>
+								<% }) %>
+								
+							</ul>
+
+							<div class="my_title clearfix">
+								<h3 class="fl">收藏</h3>
+								<a class="fr" href="">更多收藏></a>
+							</div>
+							<ul class="my_pulish common_box my_collect">
+								<% collects.forEach(function(item){%>
+								<li class="collect_box clearfix">
+									<img class="fl" width="50px" height="50px" src="<%= item.img %>" alt="">
+									<div class="content_box fl">
+										<div class="content_info_box clearfix">
+											<% if(item.type == '1'){ %>
+											<p class="content_info con_ell fl link"><a href="/discount/<%= item._id %>" target="_blank"><%= item.title %></a></p>
+											<% }if(item.type == '2'){ %>
+											<p class="content_info con_ell fl link"><a href="/publish/<%= item._id %>" target="_blank"><%= item.title %></a></p>
+											<% } %>
+											<span class="content_time fr"><%= moment(item.meta.updateAt).format('YYYY-MM-DD HH:mm:ss') %></span>
+											
+										</div>
+										<div class="content_action clearfix">
+											<a href="javascript:;" data-discount="<%= item._id %>" class="remove_collect fr">取消收藏</a>
+										</div>
+									</div>
+								</li>
+								<% }) %>
+
+							</ul>
+						</div>
+
+						<div class="info_content" data-flag="0">
+							
+						</div>
+						<div class="info_content" data-flag="0">
+							
+						</div>
+						<div class="info_content">
+							
+						</div>
+						<div class="info_content" data-flag="0">
+							
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="/javascripts/moment.js"></script>
+<script type="text/javascript" src="/javascripts/user_index.js"></script>
+<% include ../includes/footer %>

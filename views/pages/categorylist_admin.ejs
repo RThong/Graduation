@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+	<style>
+		
+	</style>
+</head>
+<body>
+    <div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h2><%= title %></h2>
+			</div>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>类型名称</th>
+						<th>录入时间</th>						
+						<th>查看</th>
+						<th>修改</th>
+						<th>删除</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% categories.forEach(function(item){ %>
+					<tr>					
+						<td><%= item.name %></td>			
+						<td><%= moment(item.meta.updateAt).format('YYYY/MM/DD  HH:mm:ss') %></td>
+						<td><a href="javascript:;">查看</a></td>
+						<td><a href="javascript:;">修改</a></td>
+						<td>
+						<button type="button" class="btn btn-danger del">删除</button></td>
+					</tr>
+					<% }) %>
+				</tbody>
+			</table>		
+		</div>
+	</div>
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

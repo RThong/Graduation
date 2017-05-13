@@ -1,0 +1,123 @@
+.coupon_content{
+	min-height: 800px;
+	background: #fff;
+}
+.coupon_main{
+	width: 820px;
+	padding: 20px 20px 20px 40px;
+}
+.side_item_title{
+	padding-bottom: 15px;
+	font-size: 14px;
+	font-weight: 700;
+	color: #000;
+	font-family: Arial,"Microsoft YaHei";
+}
+.side_item_title i{
+	display: inline-block;
+	width: 4px;
+	height: 16px;
+	margin-right: 4px;
+	vertical-align: -3px;
+	background: #f95c68;
+}
+.coupon_zhi_wrap{
+	height: 268px;
+	padding-bottom: 1px;
+	overflow: hidden;
+}
+.coupon_zhi_wrap>li{
+	margin: 0 -1px -1px 0;
+}
+.coupon_zhi_wrap>li>a{
+	display: block;
+	width: 140px;
+	height: 90px;
+	text-align: center;
+	color: #666;
+	font-size: 12px;
+	border: 1px solid #e6e6e6;
+} 
+.coupon_zhi_wrap>li>a:hover{
+	color: #ea3524;
+	position: relative;
+	border: 1px solid #ea3524;
+}
+.coupon_zhi_wrap>li>a img{
+	display: block;
+	width: 93px;
+	height: 45px;
+	margin: 12px auto 2px auto;
+}
+
+
+/*排行榜*/
+.hot_t1{
+	background: #f95c68 !important;
+}
+.hot_t2{
+	background: #ffa94d !important;
+}
+.coupon_side{
+	padding-top: 20px; 
+	width: 280px;
+}
+.side_charts_content{
+	margin-left: 4px;
+	margin-right: 20px;
+	padding-top: 5px;
+}
+.side_charts_content>li{
+	padding: 10px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+.side_charts_content>li>a:hover .coupon_text{
+	color: #ea3524;
+}
+.side_charts_content>li i{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	text-indent: 3px;
+	line-height: 14px;
+	font-size: 12px;
+	font-family: Arial;
+	color: #fff;
+	background-color: #b3b3b3;
+}
+
+.side_charts_content .coupon_mall {
+    width: 90px;
+    height: 45px;
+    margin-right: 10px;
+}
+.side_charts_content .coupon_mall img {
+    width: 90px;
+    height: 45px;
+}
+.side_charts_content .coupon_text{
+	display: inline-block;
+	width: 85px;
+	color: #666;
+}
+.side_charts_content .coupon_text_tit{
+	display: block;
+	padding-top: 7px;
+	width: 105px;
+	font-size: 12px;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;   
+}
+.side_charts_content .coupon_text_txt{
+	display: block;
+	width: 105px;
+	font-size: 12px;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+    
+         

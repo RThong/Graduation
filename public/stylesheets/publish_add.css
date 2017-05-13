@@ -1,0 +1,113 @@
+.publish_wrap{
+	background: #fff;
+	padding-bottom: 200px;
+}
+.publish_wrap .publish_main{
+	width: 820px;
+	padding: 0 40px;
+	color: #333;
+}
+.publish_wrap .publish_title{
+	padding: 20px 0;
+	font-weight: 500;	
+}
+.publish_wrap .publish_info>div{
+	margin-bottom: 15px;
+}
+.publish_wrap .publish_info>div>label{
+	display: inline-block;
+	width: 100px;
+	text-align: right;
+	height: 36px;
+	margin-right: 10px;
+	line-height: 36px;
+}
+.publish_wrap .publish_info input{
+	width: 500px;
+	outline: none;
+	padding: 9px 7px 7px 5px;
+	height: 34px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+}
+.publish_wrap #inputCategory{
+	outline: none;
+	height: 34px;
+	width: 130px;
+	font-size: 14px;
+	padding: 5px 7px 5px 5px;
+	line-height: 14px;
+	color: #666;
+}
+.publish_wrap .buy_img{
+	height: 120px;
+	position: relative;
+}
+.publish_wrap .add_upload{
+	display: inline-block;
+	width: 110px;
+	height: 110px;
+	border: 2px dashed #ccc;
+	position: absolute;
+	left: 114px;
+}
+
+.publish_wrap #portrait{
+	margin-left: 5px;
+	display: none;
+}
+
+.publish_wrap .add_icon{
+	position: absolute;
+	font-size: 34px;
+	left: 38px;
+	top: 20px;
+}
+.publish_wrap .add_txt{
+	position: absolute;
+	font-size: 14px;
+	left: 10px;
+	top: 58px;
+}
+.publish_wrap .upload_img{
+	height: 110px !important;
+	width: 110px !important;
+	opacity: 0;
+	position: absolute;
+}
+.publish_wrap .btn_submit{
+	width: 120px !important;
+	border: none !important;
+	padding: 8px !important;
+	cursor: pointer;
+}
+
+/*右侧栏*/
+.publish_side{
+	width: 280px; 
+	color: #333;
+	padding-right: 40px;
+}
+.publish_side .publish_explain{
+	padding: 20px 0; 
+	border-bottom: 1px solid #ededed;
+}
+.publish_side .pub_tlt{
+	padding: 20px 0;
+	line-height: 16px;
+	font-weight: 700;
+}
+.publish_side .pub_block{
+	display: inline-block;
+	width: 5px;
+	height: 16px;
+	background: #ec3524;
+	vertical-align: -3px;
+	margin-right: 5px;
+}
+.publish_side .pub_doc{
+	font-size: 14px;
+}
+.publish_side .pub_doc>li{
+	margin-bottom: 5px;
+}

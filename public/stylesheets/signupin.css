@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background: #f5f5f5;
+	color: #666;
+}
+a{
+	text-decoration: none;
+}
+label{
+	cursor: pointer;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.container{
+	width: 900px;
+	margin: 0 auto;
+}
+.page_head .logo_block{
+	text-align: center;
+	width: 150px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+.page_head .logo{
+	color: #ea3524;
+}
+
+.main_con>.container{
+	background: #fff;
+	border: 1px solid #dbdbdb;
+}
+.main_con .main_tit{
+	padding: 20px 50px;
+	border-bottom: 1px solid #dbdbdb;
+}
+.main_con .form_con{
+	padding: 0 120px 50px 120px;
+}
+.main_con .input_tit{
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	text-align: right;
+}
+.main_con .form_list{
+	padding: 20px 0;
+}
+.main_con .input_content{
+	height: 36px;
+	line-height: 20px;
+	width: 280px;
+	padding: 8px 0 6px 7px;
+	font-size: 16px;
+	color: #1a1a1a;
+	margin-left: 5px;
+	border: 1px solid #e1e1e1;
+}
+.main_con .alert{
+	font-size: 14px;
+	margin-left: 5px;
+}
+.main_con .btn{
+	display: inline-block;
+	width: 280px;
+	margin-left: 85px;
+	border: none;
+	padding: 10px;
+	background: #ea3524;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.main_con #ok_keep_pw{
+	margin-left: 5px;
+}
+.main_con .forget_pw{
+	margin-left: 90px;
+}
+.footer{
+	text-align: center;
+	padding: 50px 0;
+}
