@@ -4,7 +4,6 @@ var User = require('../models/user'),
     Sign = require('../models/sign');
 
 exports.sign = function(req, res, next){
-	
 	Sign.findOne({user: req.body.id}, function(err, sign){
 		if(err){
 			console.log(err);
@@ -20,7 +19,6 @@ exports.sign = function(req, res, next){
 				if(err){
 					console.log(err);
 				}
-
 				User.findById(req.body.id, function(err, user){
 					user.point += 5;
 					user.save(function(err, user){

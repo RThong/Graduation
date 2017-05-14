@@ -40,6 +40,10 @@ var User = new Schema({
 		type: ObjectId,
 		ref: 'Discount'
 	}],
+	coupons:[{
+		type: ObjectId,
+		ref: 'Coupon'
+	}],
 	meta: {
 		createAt: {
 			type: Date,

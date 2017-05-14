@@ -11,7 +11,8 @@ var Index = require('../controllers/index'),
     Admin = require('../controllers/admin'),
     Sign = require('../controllers/sign'),
     Theme = require('../controllers/theme'),
-    CouponCategory = require('../controllers/couponCategory');
+    CouponCategory = require('../controllers/couponCategory'),
+    Coupon = require('../controllers/coupon');
 
 var app = express();
 var multipartMiddleware = multipart();
@@ -134,5 +135,8 @@ router.post('/admin/coupon_category/new', CouponCategory.handleData);
 
 //优惠券页面
 router.get('/theme/:theme/:coupon', CouponCategory.detail);
+
+//用户领取优惠券ajax
+router.post('/ajax/getCoupon', Coupon.getCoupon);
 
 module.exports = router;

@@ -17,7 +17,10 @@ var Coupon = new Schema({
 		type: ObjectId,
 		ref: 'Couponcategory'
 	},//优惠券种类
-	img: String,//图片
+	user:{
+		type: ObjectId,
+		ref: 'User'
+	},
 	meta: {
 		createAt: {
 			type: Date,

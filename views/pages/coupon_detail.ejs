@@ -21,10 +21,16 @@
 				<div class="coupon_info fl">
 					<h4><%= couponCategory.title %></h4>
 					<p>兑换条件：<span><%= couponCategory.price %></span>积分</p>
-					<p>剩余张数：<span>98</span>张（已有2人领取）</p>
+					<p>剩余张数：<span><%=  couponCategory.count - getCount %></span>张（已有<%= getCount %>人领取）</p>
 					<p>有效期至：<%= moment(couponCategory.expirationtime).format('YYYY-MM-DD  HH:mm') %></p>
 					<div class="coupon_action">
-						<a href="" class="btn">立即领取</a>
+						<% if(couponCategory.count <= getCount){ %>
+						<a href="javascript:;" class="btn_prohibit">立即领取</a>
+						<% }else{ %>
+						<a href="javascript:;" class="btn get_coupon">立即领取</a>
+						<% } %>
+						<input type="hidden" name="userId" value="<%= user._id %>">
+						<input type="hidden" name="categotyId" value="<%= couponCategory._id %>">
 						<a class="my_coupon" href="">查看我的优惠券</a>
 					</div>
 				</div>
@@ -67,4 +73,5 @@
 	</div>
 </div>
 <script type="text/javascript" src="/javascripts/moment.js"></script>
+<script type="text/javascript" src="/javascripts/coupon_detail.js"></script>
 <% include ../includes/footer %>

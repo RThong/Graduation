@@ -13,21 +13,30 @@ exports.index = function(req, res, next) {
     Category.fetchCT(function(err,categories){
       if(res.locals.user){
         Sign.findOne({user: res.locals.user._id}, function(err, sign){
-          
-          var isSign = '';//1为已签到,0位未签到
-          if(moment(sign.meta.updateAt).format("YYYY-MM-DD") == moment().format("YYYY-MM-DD")){
-            isSign = '1';
+          if(sign){
+            var isSign = '';//1为已签到,0位未签到
+            if(moment(sign.meta.updateAt).format("YYYY-MM-DD") == moment().format("YYYY-MM-DD")){
+              isSign = '1';
+            }
+            else{
+              isSign = '0';
+            }
+            res.render('index',{
+              filename:'index',
+              discounts: discounts,
+              categories: categories,
+              isSign: isSign,
+              sign: sign
+            });
           }
           else{
-            isSign = '0';
+            res.render('index',{
+              filename:'index',
+              discounts: discounts,
+              categories: categories,
+              sign: ''
+            });
           }
-          res.render('index',{
-            filename:'index',
-            discounts: discounts,
-            categories: categories,
-            isSign: isSign,
-            sign: sign
-          });
         })
       }
       else{

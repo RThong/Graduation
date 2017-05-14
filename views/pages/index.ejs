@@ -7,7 +7,15 @@
 				
 				<% if(!user){ %>
 				<div class="nosign_box">
-					<a href="jvascript:;" class="sign_btn">
+					<a href="jvascript:;" class="sign_btn login_modal">
+						<span class="sign_date"></span>
+						<span class="sign_txt">每日签到领积分</span>
+					</a>
+					<p class="start_sign">连续签到获得更多积分~</p>
+				</div>
+				<% }else{if(!sign){ %>
+				<div class="nosign_box">
+					<a href="jvascript:;" class="sign_btn" data-user="<%= user._id %>">
 						<span class="sign_date"></span>
 						<span class="sign_txt">每日签到领积分</span>
 					</a>
@@ -21,7 +29,7 @@
 					</a>
 					<p class="start_sign">连续签到获得更多积分~</p>
 				</div>
-				<% }else{ %>
+				<% }if(isSign == '1'){ %>
 				<div class="oksign_box">					
 					<a href="jvascript:;" class="sign_success">
 						<span class="sign_date"></span>
@@ -29,7 +37,7 @@
 					</a>
 					<p class="start_sign" style="color: #999">您已连续签到<%= sign.signDays %>天</p>
 				</div>
-				<% }} %>
+				<% }}} %>
 				
 				<div class="oksign_box sign_hide">					
 					<a href="jvascript:;" class="sign_success">
