@@ -134,6 +134,9 @@
 	padding: 18px 18px 18px 15px;
 	border-bottom: 1px solid #ebebeb;
 } 
+.common_box li:last-child {
+	border-bottom: none;
+}
 .common_box .headpic{
 	border-radius: 50%;
 }  
@@ -181,4 +184,48 @@
 }
 .link:hover>a{
 	color: #3366cc;
+}
+
+/*优惠券*/
+.coupon_content{
+	font-size: 14px;
+}
+.coupon_content .coupon_table{
+	width: 100%;
+	margin-top: 14px;
+}
+.coupon_table thead{
+	border-bottom: 1px solid #d1d1d1;
+}
+.coupon_table th, .coupon_table td {
+	text-align: center;
+}
+.coupon_table tbody a:hover {
+	color: #3366cc;
+}
+.coupon_table th {
+	line-height: 26px;
+}
+.coupon_table tbody {
+	color: #707070;
+}
+.coupon_table tbody tr {
+	height: 40px;
+	line-height: 20px;
+	border-bottom: 1px solid #f5f5f5;
+}
+.coupon_table tbody tr:last-child {
+	border-bottom: none;
+}
+.arrow{
+	font-family: "SimSun";
+	font-weight: 700;
+	padding-left: 2px;
+}
+.coupon_table .coupon_other{
+	background-color: #f5f5f5;
+}
+.coupon_table .coupon_other th {
+	min-width: 120px;
+	line-height: 35px;
 }

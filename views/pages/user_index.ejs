@@ -53,7 +53,7 @@
 							<p class="tab_scale"></p>
 						</li>
 						<li class="tab_box fl">
-							<a href="javascript:;" class="tab">优惠券(0)</a>
+							<a href="javascript:;" class="tab">优惠券(<%= coupons.length %>)</a>
 							<p class="tab_scale"></p>
 						</li>
 					</ul>
@@ -144,7 +144,34 @@
 								<% }) %>
 
 							</ul>
+
+							<div class="my_title clearfix">
+								<h3 class="fl">优惠券</h3>
+								<a class="fr" href="">更多优惠券></a>
+							</div>
+							<div class="coupon_content">
+								<table class="coupon_table">
+									<thead>
+										<tr>
+											<th>优惠券名称</th><th>券号</th><th>有效期至</th><th>优惠券状态</th>
+										</tr>
+									</thead>
+									<tbody>
+										<% coupons.forEach(function(item){%>
+										<tr>
+											<td><a target="_blank" href="/theme/<%= item.category.theme._id %>/<%= item.category._id %>"><%= item.title %></a></td><td><%= item._id %></td><td><%= moment(item.expirationtime).format('YYYY-MM-DD') %></td>
+
+											<td>
+												<a href="<%= item.category.theme.link %>" target="_blank">前往使用<span class="arrow">></span></a>
+											</td>
+										</tr>
+										<% }) %>
+										
+									</tbody>
+								</table>
+							</div>
 						</div>
+
 
 						<div class="info_content" data-flag="0">
 							

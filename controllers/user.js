@@ -56,13 +56,34 @@ exports.index = function(req, res, next){
 
           var collects = user.collects;
 
-          res.render('user_index', { 
-            filename: 'user',
-            discounts: discounts,
-            comments: comments,
-            collects: collects
-          });
+          User
+          .findOne({_id: res.locals.user._id})
+          .populate({
+            path: 'coupons',
+            options: {limit: 5,sort:{'meta.updateAt':-1}},
+            populate: {     
+              path: 'category',
+              populate: {     
+                path: 'theme'
+              }
+            }
+          })
+          .exec(function(err, user){
+            if(err){
+              console.log(err);
+            }
 
+            var coupons = user.coupons;
+
+            res.render('user_index', { 
+              filename: 'user',
+              discounts: discounts,
+              comments: comments,
+              collects: collects,
+              coupons: coupons
+            });
+
+          });
         });
       
       });
@@ -153,6 +174,27 @@ exports.pageCollect = function(req, res, next){
   .findOne({_id: res.locals.user._id})
   .populate({
     path: 'collects'   
+  })
+  .exec(function(err, user){
+    if(err){
+      console.log(err);
+    }
+    res.json(user);
+  });
+};
+
+exports.pageCoupon = function(req, res, next){
+  
+  User
+  .findOne({_id: res.locals.user._id})
+  .populate({
+    path: 'coupons',
+    populate: {
+      path: 'category',
+      populate: {
+        path: 'theme'
+      }
+    } 
   })
   .exec(function(err, user){
     if(err){

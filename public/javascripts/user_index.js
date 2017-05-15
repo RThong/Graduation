@@ -1,5 +1,5 @@
 $(function(){
-	console.log(moment().toISOString())
+	// console.log(moment().isBefore('2017-05-15T07:26:32.611Z'))
 	//取消收藏
 	$('.info_content').on('click', '.remove_collect', function(){
 		var target = $(this).parents('.collect_box');
@@ -52,6 +52,17 @@ $(function(){
 				})
 			}
 
+			if(target.index() == 5){
+				$.get('/ajax/page_coupon')
+				.done(function(res){
+					couponDom(5, res);
+					targetBox.data('flag', '1');
+				})
+				.fail(function(res){
+					console.log('error!');
+				})
+			}
+
 		}
 
 		if(target.index() == 4){
@@ -59,7 +70,6 @@ $(function(){
 
 			$.get('/ajax/page_collect')
 			.done(function(res){
-				console.log(res)
 				collectDom(4, res);
 				
 			})
@@ -155,5 +165,28 @@ function collectDom(index, result){
 								</li>`;
 	})
 	dom += '</ul>';
+	$(".info_content").eq(index-1).prepend(dom);
+}
+
+function couponDom(index, result){
+	var dom = `<div class="coupon_content">
+								<table class="coupon_table">
+									<thead class="coupon_other">
+										<tr>
+											<th>优惠券名称</th><th>券号</th><th>有效期至</th><th>优惠券状态</th>
+										</tr>
+									</thead>
+									<tbody>`;
+
+	result.coupons.forEach(function(item){
+		dom += `<tr>
+			<td><a target="_blank" href="/theme/`+ item.category.theme._id + `/`+ item.category._id + `">`+ item.title + `</a></td><td>`+ item._id + `</td><td>`+ moment(item.expirationtime).format('YYYY-MM-DD') + `</td>
+			<td>
+				<a href="`+ item.category.theme.link + `" target="_blank">前往使用<span class="arrow">></span></a>
+			</td>
+		</tr>`
+	})
+
+	dom += `</tbody></table></div>`;
 	$(".info_content").eq(index-1).prepend(dom);
 }

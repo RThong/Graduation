@@ -115,6 +115,9 @@ router.get('/ajax/page_publish', User.pagePublish);
 //用户主页ajax评论
 router.get('/ajax/page_collect', User.pageCollect);
 
+//用户主页ajax优惠券
+router.get('/ajax/page_coupon', User.pageCoupon);
+
 //优惠券主题页面
 router.get('/theme', Theme.index);
 

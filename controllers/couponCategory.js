@@ -31,7 +31,9 @@ exports.handleData = function(req, res, next){
       var coupon = {
         title: category.title,
         expirationtime: category.expirationtime,
-        category: category._id
+        category: category._id,
+        point: category.point,
+        price: category.price
       }; 
 
       for(var i = 0;i < category.count; i++){

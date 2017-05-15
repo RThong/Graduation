@@ -5,7 +5,7 @@ $(function(){
 			categoryId: $('.coupon_action').find('input').eq(1).val()
 		})
 		.done(function(res){
-
+			console.log(res)
 		})
 		.fail(function(res){
 			console.log('error!');
