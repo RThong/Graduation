@@ -11,10 +11,11 @@ var User = new Schema({
 		type: String
 	},
 	password: String,
-	// role: {
-	// 	type: Number,
-	// 	default: 1
-	// },
+	//user身份标识，1是注册用户，大于等于10则是管理员
+	role: {
+		type: Number,
+		default: 1
+	},
 	avatar: {
 		type: String,
 		default: '/images/default_avatar.jpg'

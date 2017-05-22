@@ -258,3 +258,34 @@
 	bottom: 0;
 	opacity: 0.4;
 }
+
+.site_page {
+	padding: 80px 0;
+	text-align: center;
+}
+.page_area{
+	display: inline-block;
+}
+.page_area>a{
+	float: left;
+	display: inline-block;
+	margin-right: 8px;
+	padding: 10px 14px;
+	border: 1px solid #f0f0f0;
+	background: #fff;
+	color: #757380;
+	font-size: 14px;
+	font-family: Arial;
+	border-radius: 3px;
+}
+.page_area>a:hover{
+	border: 1px solid #ea3524;
+	color: #ea3524;
+}
+.fixed_nav{
+	position: fixed;
+	top: 100px;
+	left: 50%;
+	margin-left: -650px; 
+}
+    

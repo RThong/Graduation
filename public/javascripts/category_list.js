@@ -8,4 +8,12 @@ $(function(){
 		}
 	})
 	
+	$(window).on('scroll',function(){
+		if($(window).scrollTop() > $('.rec_content').find('.container').offset().top - 100){
+			$('.side_nav').addClass('fixed_nav');
+		}
+		else{
+			$('.side_nav').removeClass('fixed_nav');
+		}
+	});
 })

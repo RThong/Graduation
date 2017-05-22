@@ -203,3 +203,26 @@ exports.pageCoupon = function(req, res, next){
     res.json(user);
   });
 };
+
+//管理员权限审核
+exports.adminRequired = function(req, res, next){
+  var role = req.user.role;
+
+  if(role >= 10){
+    next();
+  }
+  else{
+    return res.redirect('/');
+  }
+};
+
+//用户权限审核
+exports.signinRequired = function(req, res, next){
+  
+  if(req.user){
+    next();
+  }
+  else{
+    return res.redirect('/signin');
+  }
+};

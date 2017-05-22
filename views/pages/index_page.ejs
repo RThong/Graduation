@@ -76,9 +76,9 @@
 					<span class="page_area clearfix">
 						<a class="page_prev" title="上一页" href=""><</a>
 						<% for(var i = 0; i < Math.ceil(length/5); i++){ %>
-						<a class="page_box" href="<%= i+1 %>"><%= i+1 %></a>
+							<a class="page_box" href="/page/<%= i+1 %>"><%= i+1 %></a>
 						<% } %>
-
+										
 						<a title="下一页" href="">></a>
 					</span>
 				</div>
@@ -91,20 +91,7 @@
 					<a class="side_title" href=""><p>分类筛选</p></a>
 				</div>
 
-				<div class="side_nav_container">
-					<ul>
-						<li class="cat_list"><a href="/">全部推荐</a></li>
-					
-					<% categories.forEach(function(item){ %>
-						<% if(item._id.toString() == id.toString()){ %>
-						<li style="background: #ea3524;" class="cat_list"><a style="color:#fff;" href="/discount/category/<%= item._id %>"><%= item.name %></a></li>
-						<% }else{ %>
-						<li class="cat_list"><a href="/discount/category/<%= item._id %>"><%= item.name %></a></li>
-						<% } %>
-					<% }) %>
 				
-					</ul>
-				</div>
 			</div>
 		
 		</div>			

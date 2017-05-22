@@ -22,7 +22,7 @@ var multipartMiddleware = multipart();
 router.get('/', Index.index);
 
 //首页-分类子页
-router.get('/discount/category/:id', Discount.subpage);
+router.get('/discount/category/:id/:page', Discount.subpage);
 
 //discount详细页
 router.get('/discount/:id', Discount.detail);
@@ -30,29 +30,7 @@ router.get('/discount/:id', Discount.detail);
 //publish详细页
 router.get('/publish/:id', Discount.detail);
 
-//录入页面
-router.get('/admin/discount', Admin.discountInput);
 
-//discounts列表页面
-router.get('/admin/discountlist', Admin.discountList);
-
-//discounts更新页面
-router.get('/admin/discount/update/:id', Discount.update);
-
-//获取录入的数据
-router.post('/admin/discount/new', Discount.handleData);
-
-//获取扒取数据
-router.get('/admin/discount/newlists', Discount.inputDatas);
-
-//商品类型录入页
-router.get('/admin/category', Category.inputSite);
-
-//保存商品类型数据
-router.post('/admin/category/new', Category.input);
-
-//商品类型列表页
-router.get('/admin/categorylist', Category.list);
 
 //用户页首页
 router.get('/my/index', User.index);
@@ -91,14 +69,7 @@ router.post('/my/publish/add/new', multipartMiddleware, Discount.inputPublish, D
 //全民爆料页
 router.get('/publish', Discount.publishIndex);
 
-//管理员主页
-router.get('/admin', Admin.index);
 
-//审核爆料页
-router.get('/admin/verify', Admin.verify);
-
-//discounts审核页面
-router.get('/admin/publish/:id', Discount.verify);
 
 //discount收藏
 router.post('/user/collect', Discount.collect);
@@ -124,20 +95,61 @@ router.get('/theme', Theme.index);
 //优惠券详细页面
 router.get('/theme/:theme', Theme.detail);
 
+//首页分页
+router.get('/page/:page', Index.page)
+
+
+
 //优惠券主题录入页
-router.get('/admin/theme', Theme.input);
+router.get('/admin/theme',User.signinRequired, User.adminRequired, Theme.input);
 
 //优惠券主题接受
-router.post('/admin/theme/new', Theme.handleData);
+router.post('/admin/theme/new',User.signinRequired, User.adminRequired, Theme.handleData);
 
 //优惠券类型录入页
-router.get('/admin/coupon_category', CouponCategory.input);
+router.get('/admin/coupon_category',User.signinRequired, User.adminRequired, CouponCategory.input);
 
 //优惠券主题接受
-router.post('/admin/coupon_category/new', CouponCategory.handleData);
+router.post('/admin/coupon_category/new',User.signinRequired, User.adminRequired, CouponCategory.handleData);
+
+//管理员主页
+router.get('/admin',User.signinRequired, User.adminRequired, Admin.index);
+
+//审核爆料页
+router.get('/admin/verify',User.signinRequired, User.adminRequired, Admin.verify);
+
+//discounts审核页面
+router.get('/admin/publish/:id',User.signinRequired, User.adminRequired, Discount.verify);
+
+//录入页面
+router.get('/admin/discount',User.signinRequired, User.adminRequired, Admin.discountInput);
+
+//discounts列表页面
+router.get('/admin/discountlist',User.signinRequired, User.adminRequired, Admin.discountList);
+
+//discounts更新页面
+router.get('/admin/discount/update/:id',User.signinRequired, User.adminRequired, Discount.update);
+
+//获取录入的数据
+router.post('/admin/discount/new',User.signinRequired, User.adminRequired, Discount.handleData);
+
+//获取扒取数据
+router.get('/admin/discount/newlists',User.signinRequired, User.adminRequired, Discount.inputDatas);
+
+//商品类型录入页
+router.get('/admin/category',User.signinRequired, User.adminRequired, Category.inputSite);
+
+//保存商品类型数据
+router.post('/admin/category/new',User.signinRequired, User.adminRequired, Category.input);
+
+//商品类型列表页
+router.get('/admin/categorylist',User.signinRequired, User.adminRequired, Category.list);
+
+
+
 
 //优惠券页面
-router.get('/theme/:theme/:coupon', CouponCategory.detail);
+router.get('/theme/:theme/:coupon',User.signinRequired, User.adminRequired, CouponCategory.detail);
 
 //用户领取优惠券ajax
 router.post('/ajax/getCoupon', Coupon.getCoupon);

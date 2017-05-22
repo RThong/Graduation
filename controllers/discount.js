@@ -15,7 +15,7 @@ exports.detail = function(req, res, next) {
   var id = req.params.id;
 
   Discount.findOne({_id: id})
-  .populate('user', 'username')
+  .populate('user')
   .exec(function(err,discount){
     Comment
     .find({discount: id})
@@ -35,7 +35,10 @@ exports.detail = function(req, res, next) {
 
 exports.subpage = function(req, res, next) {
   var id = req.params.id,
-      allCategory;
+      page = req.params.page,
+      allCategory,
+      count = 5,
+      index = (page-1)*count;
 
   if(id){
     Category.fetchCT(function(err, categories){
@@ -44,20 +47,37 @@ exports.subpage = function(req, res, next) {
       Category
         .findOne({_id:id})
         .populate({
-          path: 'discounts',
-          select: '_id img key intro site category'
+          path: 'discounts'
         })
         .exec(function(err, categories){
           if(err){
             console.log(err);
           }
           
-          res.render('index_category', { 
-            filename:'index',
-            discounts: categories.discounts,
-            categories: allCategory
+          var length = categories.discounts.length;
+
+          Category
+          .findOne({_id:id})
+          .populate({
+            path: 'discounts',
+            select: '_id img key intro site category',
+            options: {skip: index ,limit: count}
+          })
+          .exec(function(err, categories){
+            if(err){
+              console.log(err);
+            }
+
+            res.render('index_category', { 
+              filename:'index',
+              discounts: categories.discounts,
+              categories: allCategory,
+              id: id,
+              length: length
+            });
           });
-      })
+
+        });
     });
 
   }

@@ -307,6 +307,12 @@
 	font-size: 14px;
 	text-align: center;
 }
+.fixed_nav{
+	position: fixed;
+	top: 100px;
+	left: 50%;
+	margin-left: -650px; 
+}
 .side_nav_tit{
 	background: #ec3524;
 	height: 78px;

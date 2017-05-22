@@ -167,7 +167,7 @@
 						</div>
 						<div class="list_action">
 							<p class="list_page">
-								<span class="pub_time"><i class="fa fa-clock-o"></i> 今天6:30</span>
+								<span class="pub_time"><i class="fa fa-clock-o"></i> <%= moment(item.meta.updateAt).format('MM月DD日 HH:mm:ss') %></span>
 								<span class="bro_num"> &nbsp&nbsp&nbsp&nbsp1000人浏览</span>
 							</p>
 							<a class="btn_buy" target="_blank" href="<%= item.site %>"><i class="fa fa-shopping-cart"></i> &nbsp前往购买</a>
@@ -175,7 +175,16 @@
 					</div>
 				</div>
 				<% }) %>
-				
+				<div class="site_page">
+					<span class="page_area clearfix">
+						<a class="page_prev" title="上一页" href=""><</a>
+						<% for(var i = 0; i < Math.ceil(length/5); i++){ %>
+							<a class="page_box" href="/page/<%= i+1 %>"><%= i+1 %></a>
+						<% } %>
+										
+						<a title="下一页" href="">></a>
+					</span>
+				</div>
 			</div>
 
 			<!-- 左道航 -->
@@ -187,10 +196,10 @@
 
 				<div class="side_nav_container">
 					<ul>
-						<li class="cat_list"><a href="">全部推荐</a></li>
+						<li class="cat_list"><a href="/">全部推荐</a></li>
 					
 					<% categories.forEach(function(item){ %>
-						<li class="cat_list"><a href="/discount/category/<%= item._id %>"><%= item.name %></a></li>
+						<li class="cat_list"><a href="/discount/category/<%= item._id %>/1"><%= item.name %></a></li>
 					<% }) %>
 				
 					</ul>

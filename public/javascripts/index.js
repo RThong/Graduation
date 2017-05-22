@@ -24,6 +24,18 @@ $(function(){
 			$('.nosign_box').css('display', 'none');
 		$('.oksign_box').removeClass('sign_hide');	
 		}
-		
+	})
+
+	$(window).on('scroll',function(){
+		if($(window).scrollTop() > $('.rec_content').find('.container').offset().top - 100){
+			$('.side_nav').addClass('fixed_nav');
+		}
+		else{
+			$('.side_nav').removeClass('fixed_nav');
+		}
+	});
+
+	$('.site_page').on('click', '.page_box', function(){
+		console.log($(this).text())
 	})
 })
