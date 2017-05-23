@@ -19,6 +19,10 @@ var Discount = new Schema({
 	type: String,//1是管理员发布的优惠,2是用户发布的爆料
 	verify: String,//0是未审核,1是已审核
 	status: Number,//反馈给用户的信息,小于10代表通过,大于10代表未通过
+	hot: {
+		type: Number,
+		default: 0
+	},
 	meta: {
 		createAt: {
 			type: Date,

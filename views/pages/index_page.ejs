@@ -74,12 +74,23 @@
 				
 				<div class="site_page">
 					<span class="page_area clearfix">
-						<a class="page_prev" title="上一页" href=""><</a>
-						<% for(var i = 0; i < Math.ceil(length/5); i++){ %>
-							<a class="page_box" href="/page/<%= i+1 %>"><%= i+1 %></a>
+						<% if(page == 1){ %>
+							<a class="page_prev" title="上一页" href=""><</a>
+						<% }else{ %>
+							<a class="page_prev" title="上一页" href="/page/<%= page-1 %>"><</a>
 						<% } %>
-										
-						<a title="下一页" href="">></a>
+						<% for(var i = 0; i < Math.ceil(length/5); i++){ %>
+						<% if(page == i+1){ %>
+							<a class="page_box cur_page" href="/page/<%= i+1 %>"><%= i+1 %></a>
+						<% }else{ %>
+							<a class="page_box" href="/page/<%= i+1 %>"><%= i+1 %></a>
+						<% }} %>
+						<% if(page == Math.ceil(length/5)){ %>
+							<a title="下一页" href="">></a>
+						<% }else{ %>
+							<a title="下一页" href="/page/<%= page-1+2 %>">></a>
+						<% } %>		
+						
 					</span>
 				</div>
 			</div>

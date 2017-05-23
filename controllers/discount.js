@@ -14,6 +14,7 @@ var url = "http://www.huim.com/kuaibao/";
 exports.detail = function(req, res, next) {
   var id = req.params.id;
 
+
   Discount.findOne({_id: id})
   .populate('user')
   .exec(function(err,discount){
@@ -22,7 +23,16 @@ exports.detail = function(req, res, next) {
     .populate('user','username')
     .sort({'meta.updateAt':-1})
     .exec(function(err, comments){
-      
+      if(req.user){
+        discount.hot++;
+        discount.save(function(err, discount){
+          return res.render('detail', { 
+                    filename: 'detail',
+                    discount: discount,
+                    comments: comments
+                  });
+        })
+      }
       res.render('detail', { 
         filename: 'detail',
         discount: discount,
@@ -73,7 +83,8 @@ exports.subpage = function(req, res, next) {
               discounts: categories.discounts,
               categories: allCategory,
               id: id,
-              length: length
+              length: length,
+              page: page
             });
           });
 

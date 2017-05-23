@@ -69,7 +69,8 @@ exports.page = function(req, res, next) {
       res.render('index_page', { 
         filename:'index',
         discounts: discounts,
-        length: length
+        length: length,
+        page: page
       });
     });
 

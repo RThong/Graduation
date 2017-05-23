@@ -288,4 +288,8 @@
 	left: 50%;
 	margin-left: -650px; 
 }
-    
+.cur_page{
+	background: #ea3524 !important;
+	color: #fff !important;
+	border: 1px solid #ea3524 !important;
+}
