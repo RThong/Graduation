@@ -13,7 +13,7 @@ gulp.task('server', function() {
         var files = ["public/**/**", "views/**/**", "config/*.js"];
 
         browserSync.init({ 
-            proxy: 'http://localhost:3000',
+            proxy: 'http://localhost:5000',
             files: files,
             browser: "chrome",
             port:8080 
