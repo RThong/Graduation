@@ -5,7 +5,7 @@ var nodemon = require('gulp-nodemon');
 
 gulp.task('server', function() { 
     nodemon({ 
-        script: './bin/www', 
+        script: 'server.js', 
         ignore: ["gulpfile.js", "node_modules/", "public/**/*.*"], 
         env: { 'NODE_ENV': 'development' } 
     })

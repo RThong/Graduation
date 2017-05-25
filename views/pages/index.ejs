@@ -177,12 +177,12 @@
 				<% }) %>
 				<div class="site_page">
 					<span class="page_area clearfix">
-						<a class="page_prev" title="上一页" href=""><</a>
+						<a class="page_prev" title="上一页" href="javascript:;"><</a>
 						<% for(var i = 0; i < Math.ceil(length/5); i++){ %>
 							<a class="page_box" href="/page/<%= i+1 %>"><%= i+1 %></a>
 						<% } %>
 										
-						<a title="下一页" href="">></a>
+						<a title="下一页" href="/page/2">></a>
 					</span>
 				</div>
 			</div>
