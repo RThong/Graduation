@@ -12,7 +12,7 @@ var passport = require('passport');
 
 var User = require('./models/user');
 
-var dbUrl = 'mongodb://localhost/discountWeb';
+var dbUrl = 'mongodb://<hrt>:<hrt060304>@ds113630.mlab.com:13630/discount-web';//mongodb://localhost/discountWeb
 
 passport.use(User.createStrategy());
 var app = express();
