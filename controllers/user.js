@@ -100,7 +100,7 @@ exports.login = function(req, res, next){
     }
     //未找到用户
     if(!user){ 
-      return res.redirect('/signin'); 
+      return res.redirect('/signin');
     }
     //找到该用户
     req.logIn(user, function(err) {
@@ -114,6 +114,8 @@ exports.login = function(req, res, next){
         return res.redirect(req.headers.referer);
       }
       
+      
+    
     });
 
   })(req, res, next);
@@ -225,4 +227,60 @@ exports.signinRequired = function(req, res, next){
   else{
     return res.redirect('/signin');
   }
+};
+
+//用户名查重
+exports.check = function(req, res, next){
+  User.findOne({username: req.body.username}, function(err, user){
+    if(err){
+      console.log(err);
+    }
+    if(user){
+      res.json({
+        status: 0,
+        info: '用户名已存在'
+      });
+    }
+    else{
+      res.json({
+        status: 1,
+        info: '用户名可用'
+      });
+    }
+  })
+};
+
+exports.ajaxLogin = function(req, res, next){
+  passport.authenticate('local', function(err, user, info) {
+    if(err){ 
+      return next(err); 
+    }
+    //未找到用户
+    if(!user){ 
+      return res.json({
+        status: 0,
+        info:'帐号或密码错误 !'
+      }); 
+    }
+    //找到该用户
+    req.logIn(user, function(err) {
+      if(err){
+        return next(err);
+      }
+      // if(req.headers.referer.indexOf('signin')>=0){
+      //   return res.redirect('/');
+      // }
+      // else{
+      //   return res.redirect(req.headers.referer);
+      // }
+      
+      res.json({
+        status: 1,
+        info:'登录成功'
+      }); 
+    
+    });
+
+  })(req, res, next);
+  
 };

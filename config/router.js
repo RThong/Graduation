@@ -154,4 +154,10 @@ router.get('/theme/:theme/:coupon',User.signinRequired, User.adminRequired, Coup
 //用户领取优惠券ajax
 router.post('/ajax/getCoupon', Coupon.getCoupon);
 
+//用户名查重ajax
+router.post('/ajax/username', User.check);
+
+//用户ajax登录
+router.post('/ajax/signin', User.ajaxLogin);
+
 module.exports = router;

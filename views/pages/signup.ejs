@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link href="//at.alicdn.com/t/font_fh701kfzpf4j9k9.css" rel="stylesheet">
 	<link rel="stylesheet" href="/stylesheets/signupin.css">
 </head>
 
@@ -24,25 +25,31 @@
 				<div class="form_list clearfix">
 					<label class="fl input_tit" for="inputUsername">帐号 :</label>
 					<div class="input_con fl">
-						<input id="inputUsername" class="input_content" type="text" placeholder="请输入帐号" name="user[username]">
-						<p class="alert alert_user">请输入帐号</p>
+						<input id="inputUsername" class="input_content" type="text" placeholder="请输入帐号" name="user[username]" data-verify="0">
+
+						<p class="alert alert_data"><i class="iconfont icon-ic_priority_high_px"></i>请输入帐号</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i><span class="alert_con">请正确填写帐号</span></p>
+						<p class="alert alert_ok"><i class="iconfont icon-checkmark"></i>恭喜，用户名可用</p>
 					</div>
 				</div>
 				<div class="form_list clearfix">
 					<label class="fl input_tit" for="inputPassword">密码 :</label>
 					<div class="input_con fl">
-						<input id="inputPassword" class="input_content" type="text" placeholder="请输入密码" name="user[password]">
-						<p class="alert alert_pass">请输入密码</p>
+						<input id="inputPassword" class="input_content" type="password" placeholder="请输入密码" name="user[password]" data-verify="0">
+						<p class="alert alert_data"><i class="iconfont icon-ic_priority_high_px"></i>不少于6个字符，区分大小写</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i>请正确填写密码</p>
+						
 					</div>
 				</div>
 				<div class="form_list clearfix">
 					<label class="fl input_tit" for="inputConfirm">确认密码 :</label>
 					<div class="input_con fl">
-						<input id="inputConfirm" class="input_content" type="text" placeholder="请确认密码">
-						<p class="alert alert_confirm">请确认密码</p>
+						<input id="inputConfirm" class="input_content" type="password" placeholder="请确认密码" data-verify="0">
+						<p class="alert alert_data"><i class="iconfont icon-ic_priority_high_px"></i>请再次输入密码</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i>两次输入的密码不一样</p>
 					</div>
 				</div>
-				<input class="signup_btn btn" type="submit" value="立即注册">
+				<input class="signup_btn btn" type="submit" value="立即注册" onclick="return check($(this))">
 			</form>
 		</div>
 	</div>

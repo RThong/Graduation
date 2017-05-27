@@ -1,6 +1,0 @@
-{
-  "apps" : [{
-    "name" : "graduation-design",  //名称
-    "script": "server.js" //程序入库
-    }]
-}

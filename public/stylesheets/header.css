@@ -149,7 +149,7 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	z-index: 1001;
+	z-index: 100;
 	transform:translate(-50%, -50%);
 	display: block;
 	width: 520px;
@@ -211,6 +211,16 @@
 	color: #b4b4b4;
 	margin-left: 5px;
 	border: 1px solid #e1e1e1;
+}
+.modal	.input_con .alert_data{
+	color: #808080;
+}
+.modal	.input_con .alert_msg{
+	color: red;
+}
+.modal	.input_con .iconfont{
+	font-size: 12px;
+	margin-right: 0px;
 }
 .modal	.input_con>p{
 	position: absolute;
@@ -292,4 +302,41 @@
 	background: #ea3524 !important;
 	color: #fff !important;
 	border: 1px solid #ea3524 !important;
+}
+.alert{
+	position: absolute;
+	display: none;
+}
+
+/*提示框*/
+.modal_info{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%, -50%);
+	width: 250px;
+	height: 80px;
+	z-index: 101;
+	border-radius: 5px;
+	background: #ccc7c2;
+	display: none;
+}
+.modal_info .modal_con{
+	width: 240px;
+	height: 70px;
+	border-radius: 5px;
+	background: #fff;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	text-align: center;
+	line-height: 70px;
+}
+.modal_info .icon-103{
+	color: #52D71E;
+	font-size: 30px;
+	margin-right: 10px;
+}
+.modal_info .modal_txt{
+	color: #666;
 }

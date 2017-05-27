@@ -1,6 +1,6 @@
 <% include ./head %>
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="//at.alicdn.com/t/font_d7awbdaohat0rudi.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_fh701kfzpf4j9k9.css" rel="stylesheet">
 <link rel="stylesheet" href="/stylesheets/header.css">
 <% if(filename){ %>
 <link rel="stylesheet" href="/stylesheets/<%= filename %>.css">
@@ -106,19 +106,20 @@
 		</div>
 		<div class="login_main">
 
-			<form method="post" action="/user/signin">
+			<form method="post">
 				<div class="username clearfix">
 					<label class="fl input_tit" for="inputUsername">帐号 :</label>
 					<div class="input_con fl">
 						<input id="inputUsername" type="text" placeholder="请输入帐号" name="username">
-						<p class="alert_user">请输入帐号</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i><span class="alert_con">请输入帐号</span></p>
+
 					</div>
 				</div>
 				<div class="password clearfix">
 					<label class="fl input_tit" for="inputPassword">密码 :</label>
 					<div class="input_con fl">
 						<input id="inputPassword" type="text" placeholder="请输入密码" name="password">
-						<p class="alert_pass">请输入密码</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i><span class="alert_con">请输入密码</span></p>
 					</div>
 				</div>
 				<div class="keep_log clearfix">
@@ -127,8 +128,18 @@
 					<label for="ok_keep_pw">以后自动登录</label>
 					<a class="forget_pw" href="">忘记密码?</a>
 				</div>
-				<input class="login_btn" type="submit" value="登录">	
+				<input class="login_btn" type="submit" value="登录" onclick="return false">	
 			</form>
+		</div>
+	</div>
+
+	<!-- 提示框 -->
+	<div class="modal_info">
+		<div class="modal_con">
+			<p>
+				<i class="iconfont icon-103"></i>
+				<span class="modal_txt"></span>
+			</p>		
 		</div>
 	</div>
 <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>

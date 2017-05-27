@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+	<link href="//at.alicdn.com/t/font_fh701kfzpf4j9k9.css" rel="stylesheet">
 	<link rel="stylesheet" href="/stylesheets/signupin.css">
 </head>
 
@@ -22,27 +23,27 @@
 			</div>
 			<form class="form_con" method="post" action="/user/signin">
 				<div class="form_list clearfix">
-					<label class="fl input_tit" for="inputUsername">帐号 :</label>
+					<label class="fl input_tit" for="inputUser">帐号 :</label>
 					<div class="input_con fl">
-						<input id="inputUsername" class="input_content" type="text" placeholder="请输入帐号" name="username">
-						<p class="alert alert_user">请输入帐号</p>
+						<input id="inputUser" class="input_content" type="text" placeholder="请输入帐号" name="username" data-verify="0">
+
+						<p class="alert alert_data"><i class="iconfont icon-ic_priority_high_px"></i>请输入帐号</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i><span class="alert_con">请正确填写帐号</span></p>
+
 					</div>
 				</div>
 				<div class="form_list clearfix">
-					<label class="fl input_tit" for="inputPassword">密码 :</label>
+					<label class="fl input_tit" for="inputPass">密码 :</label>
 					<div class="input_con fl">
-						<input id="inputPassword" class="input_content" type="text" placeholder="请输入密码" name="password">
-						<p class="alert alert_pass">请输入密码</p>
+						<input id="inputPass" class="input_content" type="text" placeholder="请输入密码" name="password" data-verify="0">
+
+						<p class="alert alert_data"><i class="iconfont icon-ic_priority_high_px"></i>请输入密码</p>
+						<p class="alert alert_msg"><i class="iconfont icon-cha"></i><span class="alert_con">请正确填写密码</span></p>
 					</div>
 				</div>
 
-				<div class="keep_log clearfix">
-					<label class="input_tit fl" for=""></label>
-					<input type="checkbox" id="ok_keep_pw" checked="checked">
-					<label for="ok_keep_pw">以后自动登录</label>
-					<a class="forget_pw" href="">忘记密码?</a>
-				</div>
-				<input class="login_btn btn" type="submit" value="登录">
+				
+				<input class="login_btn btn" type="submit" value="登录"  onclick="return checkLogin()">
 			</form>
 		</div>
 	</div>
