@@ -15,7 +15,11 @@ var Couponcategory = new Schema({
 		type: ObjectId,
 		ref: 'Coupon'
 	}],
-	count: Number,
+	count: Number,//数量
+	receiveCount: {
+		type: Number,
+		default: 0
+	},
 	expirationtime: Date,//有效期至
 	point: Number,//领取积分
 	price: Number,//金额

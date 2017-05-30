@@ -13,9 +13,9 @@ exports.getCoupon = function(req, res, next){
       if(err){
         console.log(err);
       }
-      console.log(coupon.point,user.point)
       if(coupon.point > user.point){
         res.json({
+          status: 0,
           info:'积分不够!'
         })
       }
@@ -26,9 +26,20 @@ exports.getCoupon = function(req, res, next){
           user.coupons.push(coupon._id);
           user.point = user.point - coupon.point;
           user.save(function(err, user){
-            res.json({
-              info: 'success!'
+            CouponCategory.findById(coupon.category, function(err, category){
+              if(err){
+                console.log(err);
+              }
+
+              category.receiveCount++;
+              category.save(function(err, coupon){
+                res.json({
+                  status: 1,
+                  info: 'success!'
+                })
+              })
             })
+            
           })
         })
       }

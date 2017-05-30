@@ -3,6 +3,11 @@
   min-height: 700px;
   background-color: #ebebeb;
 }
+.cur_list{
+	border-left: 3px solid #ea3524;
+	background-color: #fff;
+	font-weight: 700;
+}
 .user_content .personal_list>.list_link{
   display: block;
   height: 48px;
@@ -11,6 +16,10 @@
   color: #3c3c3c;
   font-size: 14px;
 }
+.user_content .personal_list>.list_link:hover{
+	background: #f9f9f9;
+}
+
 /*用户页面主页*/
 .user_content .main_page{
 	padding: 30px 50px;

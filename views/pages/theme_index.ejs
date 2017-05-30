@@ -25,56 +25,24 @@
 					<i></i>领取排行榜
 				</p>
 				<ul class="side_charts_content">
+					<% categories.forEach(function(item, index){ %>
 					<li>
-						<a class="clearfix" href="">
-							<i class="hot_t1 fl" href="">1</i>
-							<span class="coupon_mall"><img src="https://i.huim.com/mall/you.163.gif" alt=""></span>
+						<a class="clearfix" target="_blank" href="/theme/<%= item.theme._id %>/<%= item._id %>">
+						<% if( index+1 <= 1 ){ %>
+							<i class="hot_t1 fl"><%= index+1 %></i>
+						<% }else if( index+1 <= 3 ){ %>
+							<i class="hot_t2 fl"><%= index+1 %></i>
+						<% }else{ %>
+							<i class="fl"><%= index+1 %></i>
+						<% } %>
+							<span class="coupon_mall"><img src="<%= item.theme.img %>" alt=""></span>
 							<span class="coupon_text">
-								<span class="coupon_text_tit">网易严选</span>
-								<span class="coupon_text_txt">满499减80优惠券</span>	
+								<span class="coupon_text_tit"><%= item.theme.name %></span>
+								<span class="coupon_text_txt"><%= item.title.split(item.theme.name)[1] %></span>	
 							</span>
 						</a>
 					</li>
-					<li>
-						<a class="clearfix" href="">
-							<i class="hot_t2 fl" href="">2</i>
-							<span class="coupon_mall"><img src="https://i.huim.com/mall/you.163.gif" alt=""></span>
-							<span class="coupon_text">
-								<span class="coupon_text_tit">网易严选</span>
-								<span class="coupon_text_txt">满499减80优惠券</span>	
-							</span>
-						</a>
-					</li>
-					<li>
-						<a class="clearfix" href="">
-							<i class="hot_t2 fl" href="">3</i>
-							<span class="coupon_mall"><img src="https://i.huim.com/mall/you.163.gif" alt=""></span>
-							<span class="coupon_text">
-								<span class="coupon_text_tit">网易严选</span>
-								<span class="coupon_text_txt">满499减80优惠券</span>	
-							</span>
-						</a>
-					</li>
-					<li>
-						<a class="clearfix" href="">
-							<i class="fl" href="">4</i>
-							<span class="coupon_mall"><img src="https://i.huim.com/mall/you.163.gif" alt=""></span>
-							<span class="coupon_text">
-								<span class="coupon_text_tit">网易严选</span>
-								<span class="coupon_text_txt">满499减80优惠券</span>	
-							</span>
-						</a>
-					</li>
-					<li>
-						<a class="clearfix" href="">
-							<i class="fl" href="">5</i>
-							<span class="coupon_mall"><img src="https://i.huim.com/mall/you.163.gif" alt=""></span>
-							<span class="coupon_text">
-								<span class="coupon_text_tit">网易严选</span>
-								<span class="coupon_text_txt">满499减80优惠券</span>	
-							</span>
-						</a>
-					</li>
+				<% }) %>
 
 				</ul>
 			</div>

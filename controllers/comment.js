@@ -1,8 +1,10 @@
 var Comment = require('../models/comment'),
-		User = require('../models/user');
+		User = require('../models/user'),
+    Discount = require('../models/discount');
 
 exports.publish = function(req, res, next){
 
+  console.log(req.body)
   var _comment = new Comment(req.body.comment);
   _comment.save(function(err,comment){
     if(err){
@@ -26,11 +28,20 @@ exports.publish = function(req, res, next){
             console.log(err);
           }
 
-          res.json({
-            comment: comment,
-            user: user,
-            length: comments.length
-          });
+          Discount.findById(req.body.comment.discount, function(err, discount){
+            if(err){
+              console.log(err);
+            }
+            discount.commentCount++;
+            discount.save(function(err, discount){
+              res.json({
+                comment: comment,
+                user: user,
+                length: comments.length
+              })
+            })
+          })
+          ;
         })
       })
       

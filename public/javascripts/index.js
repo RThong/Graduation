@@ -10,7 +10,12 @@ $(function(){
 				id: $(this).data('user')
 			})
 			.done(function(res){
-				prompt('签到成功，积分加5');
+				if(res.signDays <= 7){
+					prompt('签到成功，积分加5');
+				}
+				else{
+					prompt('签到成功，积分加10');
+				}			
 				$('.sign_days').text(res.signDays);
 			})
 			.fail(function(res){

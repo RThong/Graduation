@@ -1,0 +1,28 @@
+<% include ../includes/header %>
+<div class="container">
+	<p class="search_result">为您找到的 <span class="search_info">"<%= key %>"</span> 相关内容</p>
+</div>
+<div class="publish_wrap">
+	<ul class="clearfix">
+	<% discounts.forEach(function(item){ %>
+		<li class="publish_box shadow fl">
+			<div class="pub_pic">
+				<a href="/publish/<%= item._id%>"><img width="236px" height="236px" src="<%= item.img %>" alt=""></a>
+			</div>
+			<p class="pub_tit">
+				<a title="<%= item.title %>" href="/publish/<%= item._id%>"><%= item.title %></a>
+			</p>
+			<p class="pub_ksy">
+				<a href="javascripts:;"><%= item.key %></a>
+			</p>
+			<div class="pub_info clearfix">
+				<span class="pub_time"><%= moment(item.meta.updateAt).format('MM月DD日 HH:mm') %></span>
+				<span class="pub_user fr"><%= item.user.username %></span>
+			</div>
+			<a class="btn" target="_blank" href="<%= item.site%>">前往购买</a>
+		
+		</li>
+		<% }) %>
+	</ul>
+</div>
+<% include ../includes/footer %>

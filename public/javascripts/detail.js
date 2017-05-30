@@ -1,13 +1,16 @@
 $(function(){
 	//发表评论
 	$('.btn_pub').on('click', function(){
-
+		if($('#comment_pub').val().length < 5){
+			$('.comment_action').find('.com_tips').show().delay(2000).fadeOut();
+			return;
+		}
 		$.post('/user/comment', $('#commentForm').serialize())
 		.done(function(res){
 			dom(res);
 			$('#comment_pub').val('');
 			location.hash="#target-comment";
-			// $('.form-group').find('textarea').val(''); 
+			prompt(0,'评论成功，积分加5');
 		})
 		.fail(function(res){
 			console.log('err');
@@ -45,6 +48,7 @@ $(function(){
 				.css('color', '#333')
 				.attr('title', '取消赞')
 				.find('.csupport_count').text(res.supportConut);
+				prompt(0,'点赞成功');
 			})
 			.fail(function(res){
 				console.log('error!');
@@ -111,7 +115,7 @@ $(function(){
 				target.find('.iconfont').removeClass('icon-shoucang');
 				target.find('.iconfont').addClass('icon-shoucang1');
 				target.addClass('has_collect');
-				console.log(res)
+				prompt(0,'收藏成功');
 			})
 			.fail(function(res){
 				console.log('error!');

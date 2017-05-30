@@ -127,6 +127,7 @@
 	color: #fff;
 	cursor: pointer;
 	background: #ec3524;
+	outline: none;
 }
 
 
@@ -332,11 +333,21 @@
 	text-align: center;
 	line-height: 70px;
 }
+
 .modal_info .icon-103{
 	color: #52D71E;
 	font-size: 30px;
 	margin-right: 10px;
 }
+.modal_info .icon-gantanhao{
+	color: #ff9600;
+	font-size: 30px;
+	margin-right: 10px;
+}
 .modal_info .modal_txt{
 	color: #666;
+	vertical-align: 5px;
+}
+.hot_list:last-child {
+	border-bottom: none;
 }

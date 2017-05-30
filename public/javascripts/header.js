@@ -92,10 +92,16 @@ $(function(){
 		})
 	});
 
-	
+	//搜索框提示
+	$('.search_submit').on('click', function(event){
+		if($('#keywords').val().length == 0){
+			event.preventDefault();
+			prompt(1,'搜索词不能为空');
+		}
+	})
 });
 
-function prompt(text){
+function prompt(signal,text){
 	$('.modal_info').find('.modal_txt').text(text);
-	$('.modal_info').show().delay(2000).fadeOut();
+	$('.modal_info').eq(signal).show().delay(2000).fadeOut();
 }

@@ -84,6 +84,13 @@
 	padding: 15px;
 	position: relative;
 }
+.publish_wrap .pub_tit{
+	padding: 5px 0 2px 0;
+	overflow: hidden;
+	word-break: keep-all;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
 .publish_wrap .pub_tit>a{
 	color: #333;
 }

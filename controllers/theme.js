@@ -1,15 +1,27 @@
-var Theme = require('../models/theme');
+var Theme = require('../models/theme'),
+    CouponCategory = require('../models/couponCategory');
 
 exports.index = function(req, res, next){
   Theme.fetch(function(err, themes){
     if(err){
       console.log(err);
     }
-    console.log(themes)
-    res.render('theme_index', {
-      filename: 'theme_index',
-      themes: themes
+    CouponCategory.find(null, null ,{limit:5, sort:{'receiveCount':-1}})
+      .populate({
+        path: 'theme'
+      })
+      .exec(function(err,categories){  
+      if(err){
+        console.log(err);
+      }
+      
+      res.render('theme_index', {
+        filename: 'theme_index',
+        themes: themes,
+        categories: categories
+      })
     })
+    
   })
   
 }

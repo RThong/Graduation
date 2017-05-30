@@ -5,90 +5,105 @@ var User = require('../models/user'),
 var passport = require('passport');
 
 exports.index = function(req, res, next){
-	if(!res.locals.user){
+	if(!req.user){
 		res.redirect('/signup');
 	}
 	else{
-    User
-    .findOne({_id: res.locals.user._id})
-    .populate({
-      path: 'discounts',
-      select: '_id title key img status meta',
-      options: {limit: 5}  
-    })
-    .exec(function(err, user){
+    User.findById(req.user._id, function(err, user){
       if(err){
         console.log(err);
       }
-      
-      var discounts = user.discounts;
+
+      var discount_count = user.discounts.length,
+          comment_count = user.comments.length,
+          collect_count = user.collects.length,
+          coupon_count = user.coupons.length;
+
 
       User
-      .findOne({_id: res.locals.user._id})
+      .findOne({_id: req.user._id})
       .populate({
-        path: 'comments',
-        select: '_id meta discount content',
-        options: {limit: 5,sort:{'meta.updateAt':-1}},
-
-        populate: {
-          path: 'discount',
-          select: 'title img type'
-        }
+        path: 'discounts',
+        select: '_id title key img status meta',
+        options: {limit: 5}  
       })
       .exec(function(err, user){
         if(err){
           console.log(err);
         }
-        
-        var comments = user.comments;
+
+        var discounts = user.discounts;
 
         User
-        .findOne({_id: res.locals.user._id})
+        .findOne({_id: req.user._id})
         .populate({
-          path: 'collects',
-          select: '_id meta img title type',
-          options: {limit: 5,sort:{'meta.updateAt':-1}}
+          path: 'comments',
+          select: '_id meta discount content',
+          options: {limit: 5,sort:{'meta.updateAt':-1}},
+
+          populate: {
+            path: 'discount',
+            select: 'title img type'
+          }
         })
         .exec(function(err, user){
           if(err){
             console.log(err);
           }
 
-          var collects = user.collects;
+          var comments = user.comments;
 
           User
-          .findOne({_id: res.locals.user._id})
+          .findOne({_id: req.user._id})
           .populate({
-            path: 'coupons',
-            options: {limit: 5,sort:{'meta.updateAt':-1}},
-            populate: {     
-              path: 'category',
-              populate: {     
-                path: 'theme'
-              }
-            }
+            path: 'collects',
+            select: '_id meta img title type',
+            options: {limit: 5,sort:{'meta.updateAt':-1}}
           })
           .exec(function(err, user){
             if(err){
               console.log(err);
             }
 
-            var coupons = user.coupons;
+            var collects = user.collects;
 
-            res.render('user_index', { 
-              filename: 'user',
-              discounts: discounts,
-              comments: comments,
-              collects: collects,
-              coupons: coupons
+            User
+            .findOne({_id: req.user._id})
+            .populate({
+              path: 'coupons',
+              options: {limit: 5,sort:{'meta.updateAt':-1}},
+              populate: {     
+                path: 'category',
+                populate: {     
+                  path: 'theme'
+                }
+              }
+            })
+            .exec(function(err, user){
+              if(err){
+                console.log(err);
+              }
+
+              var coupons = user.coupons;
+
+              res.render('user_index', { 
+                filename: 'user',
+                discounts: discounts,
+                comments: comments,
+                collects: collects,
+                coupons: coupons,
+                discount_count: discount_count,
+                comment_count: comment_count,
+                collect_count: collect_count,
+                coupon_count: coupon_count
+              });
+
             });
-
           });
-        });
-      
-      });
-	  });
 
+        });
+      });
+    });
   }
   
 };
@@ -143,10 +158,11 @@ exports.pageComment = function(req, res, next){
   .findOne({_id: res.locals.user._id})
   .populate({
     path: 'comments',
+    options: {sort:{'meta.updateAt':-1}},
     populate: {
       path: 'discount'
     }
-  })
+  })  
   .exec(function(err, user){
     if(err){
       console.log(err);
@@ -160,7 +176,8 @@ exports.pagePublish = function(req, res, next){
   User
   .findOne({_id: res.locals.user._id})
   .populate({
-    path: 'discounts'   
+    path: 'discounts',
+    options: {sort:{'meta.updateAt':-1}} 
   })
   .exec(function(err, user){
     if(err){
@@ -175,7 +192,8 @@ exports.pageCollect = function(req, res, next){
   User
   .findOne({_id: res.locals.user._id})
   .populate({
-    path: 'collects'   
+    path: 'collects',
+    options: {sort:{'meta.updateAt':-1}}   
   })
   .exec(function(err, user){
     if(err){
@@ -196,7 +214,8 @@ exports.pageCoupon = function(req, res, next){
       populate: {
         path: 'theme'
       }
-    } 
+    },
+    options: {sort:{'meta.updateAt':-1}}
   })
   .exec(function(err, user){
     if(err){

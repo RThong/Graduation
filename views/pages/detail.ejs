@@ -26,42 +26,27 @@
 					<span class="red_block"></span>
 					<span class="tit_content">热门推荐</span>
 				</div>
-
+				<% hots.forEach(function(item){ %>
 				<div class="hot_list clearfix">
 					<div class="hot_pic fl">
-						<a href="">
-							<img style="width: 64px;" src="https://i.huim.com/contents/14827585534999.png!45x45.jpg" alt="">
+						<a target="_blank" href="/discount/<%= item.id %>">
+							<img style="width: 64px;" src="<%= item.img %>" alt="">
 						</a>
 					</div>
 					<div class="hot_info fl">
 						<div class="hot_tit">
-							<a href=""><p>10点开抢# 聚划算4月4日 秒杀/免单/半价活动内容 超</p></a>
+							<a target="_blank" href="/discount/<%= item.id %>"><p><%= item.title %></p></a>
 						</div>
 						<div class="hot_action">
-							<span class="hot_num">浏览1000</span>
-							<span class="hot_comment">评论2750</span>
+							<span class="hot_num">浏览<%= item.hot %></span>
+							<span class="hot_comment">评论<%= item.commentCount %></span>
 						</div>
 					</div>			
 				</div>
-				<div class="hot_list clearfix">
-					<div class="hot_pic fl">
-						<a href="">
-							<img style="width: 64px;" src="https://i.huim.com/contents/14827585534999.png!45x45.jpg" alt="">
-						</a>
-					</div>
-					<div class="hot_info fl">
-						<div class="hot_tit">
-							<a href=""><p>10点开抢# 聚划算4月4日 秒杀/免单/半价活动内容 超</p></a>
-						</div>
-						<div class="hot_action">
-							<span class="hot_num">浏览1000</span>
-							<span class="hot_comment">评论2750</span>
-						</div>
-					</div>			
-				</div>
+				<% }) %>
 			</div>
 			<!-- 每日推荐 -->
-			<div class="detail_content">
+			<div class="detail_content fr">
 				<div class="detail_path">
 					<a href="">首页</a>
 					<span>></span>
@@ -132,6 +117,7 @@
 								</div>
 								<div class="comment_action clearfix">
 									<a href="javascript:;" class="btn btn_pub fr">发表</a>
+									<p class="com_tips fr">评论内容不少于5个字符哦~~</p>
 								</div>
 							</div>
 						</form>

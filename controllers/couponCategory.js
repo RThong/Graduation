@@ -25,34 +25,36 @@ exports.handleData = function(req, res, next){
 
     Theme.findById(category.theme, function(err, theme){
       theme.categories.push(category._id);
-      theme.save();
-      
-      var list = [];
-      var coupon = {
-        title: category.title,
-        expirationtime: category.expirationtime,
-        category: category._id,
-        point: category.point,
-        price: category.price
-      }; 
+      theme.save(function(err, theme){
+        var list = [];
+        var coupon = {
+          title: category.title,
+          expirationtime: category.expirationtime,
+          category: category._id,
+          point: category.point,
+          price: category.price
+        }; 
 
-      for(var i = 0;i < category.count; i++){
-        list.push(coupon);
-      }
-      Coupon.create(list, function(err, coupons){
-        if(err){
-          console.log(err);
+        for(var i = 0;i < category.count; i++){
+          list.push(coupon);
         }
+        Coupon.create(list, function(err, coupons){
+          if(err){
+            console.log(err);
+          }
 
-        var arr=[];
-        coupons.forEach(function(item){
-          arr.push(item._id);
-        });
-        category.coupons = category.coupons.concat(arr);
-        category.save(function(err, category){
-
+          var arr=[];
+          coupons.forEach(function(item){
+            arr.push(item._id);
+          });
+          category.coupons = category.coupons.concat(arr);
+          category.save(function(err, category){
+            res.redirect('/admin');
+          })
         })
-      })
+      });
+      
+      
     })
     
   })

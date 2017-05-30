@@ -23,23 +23,31 @@ exports.detail = function(req, res, next) {
     .populate('user','username')
     .sort({'meta.updateAt':-1})
     .exec(function(err, comments){
-      if(req.user){
-        discount.hot++;
-        discount.save(function(err, discount){
-          return res.render('detail', { 
-                    filename: 'detail',
-                    discount: discount,
-                    comments: comments
-                  });
-        })
-      }
-      res.render('detail', { 
-        filename: 'detail',
-        discount: discount,
-        comments: comments
+      Discount.find({type: '1'},null,{limit:5, sort:{'hot':-1}}, function(err,discounts){
+        if (err) {
+          console.log(err);
+        }
+        var hots = discounts;
+        if(req.user){
+          discount.hot++;
+          discount.save(function(err, discount){
+
+            return res.render('detail', { 
+              filename: 'detail',
+              discount: discount,
+              comments: comments,
+              hots: hots
+            });
+          });
+        }
+        res.render('detail', { 
+          filename: 'detail',
+          discount: discount,
+          comments: comments,
+          hots: hots
+        });
       });
-    })
-    
+    });
   }) 
 };
 
@@ -77,14 +85,20 @@ exports.subpage = function(req, res, next) {
             if(err){
               console.log(err);
             }
-
-            res.render('index_category', { 
-              filename:'index',
-              discounts: categories.discounts,
-              categories: allCategory,
-              id: id,
-              length: length,
-              page: page
+            Discount.find({type: '1'},null,{limit:5, sort:{'hot':-1}}, function(err,discounts){
+              if (err) {
+                console.log(err);
+              }
+              var hots = discounts;
+              res.render('index_category', { 
+                filename:'index',
+                discounts: categories.discounts,
+                categories: allCategory,
+                id: id,
+                length: length,
+                page: page,
+                hots: hots
+              });
             });
           });
 
@@ -340,7 +354,9 @@ exports.publishSite = function(req, res, next){
 
 exports.publishIndex = function(req, res, next){
   
-  Discount.find({type: '2', status: { $lt: 10 }}, function(err,discounts){
+  Discount.find({type: '2', status: { $lt: 10 }})
+  .populate('user')
+  .exec(function(err,discounts){
     if (err) {
       console.log(err);
     }

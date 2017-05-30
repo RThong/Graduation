@@ -149,7 +149,7 @@ router.get('/admin/categorylist',User.signinRequired, User.adminRequired, Catego
 
 
 //优惠券页面
-router.get('/theme/:theme/:coupon',User.signinRequired, User.adminRequired, CouponCategory.detail);
+router.get('/theme/:theme/:coupon', CouponCategory.detail);
 
 //用户领取优惠券ajax
 router.post('/ajax/getCoupon', Coupon.getCoupon);
@@ -160,4 +160,6 @@ router.post('/ajax/username', User.check);
 //用户ajax登录
 router.post('/ajax/signin', User.ajaxLogin);
 
+//搜索分类
+router.get('/results', Index.search);
 module.exports = router;

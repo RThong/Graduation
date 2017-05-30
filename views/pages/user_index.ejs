@@ -4,9 +4,7 @@
 			<div class="left_nav fl">
 				<ul>
 					<li class="personal_list"><a href="" class="list_link cur_list">个人中心</a></li>
-					<li class="personal_list"><a href="" class="list_link cur_list">资产明细</a></li>
-					<li class="personal_list"><a href="" class="list_link cur_list">消息中心</a></li>
-					<li class="personal_list"><a href="" class="list_link cur_list">账户设置</a></li>
+					<li class="personal_list"><a href="" class="list_link">账户设置</a></li>
 				</ul>
 			</div>
 			<div class="main_page fl">
@@ -41,19 +39,19 @@
 							<p class="tab_scale"></p>							
 						</li>
 						<li class="tab_box fl">
-							<a href="javascript:;" class="tab">评论(<%= comments.length %>)</a>
+							<a href="javascript:;" class="tab">评论(<%= comment_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
 						<li class="tab_box fl">
-							<a href="javascript:;" class="tab">爆料(<%= discounts.length %>)</a>
+							<a href="javascript:;" class="tab">爆料(<%= discount_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
 						<li class="tab_box fl">
-							<a href="javascript:;" class="tab" id="collect_tit">收藏(<%= collects.length %>)</a>
+							<a href="javascript:;" class="tab" id="collect_tit">收藏(<%= collect_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
 						<li class="tab_box fl">
-							<a href="javascript:;" class="tab">优惠券(<%= coupons.length %>)</a>
+							<a href="javascript:;" class="tab">优惠券(<%= coupon_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
 					</ul>

@@ -1,5 +1,10 @@
 $(function(){
 	// console.log(moment().isBefore('2017-05-15T07:26:32.611Z'))
+
+	//左tab height
+
+	$('.left_nav').height($('.user_content').find('.container').height());
+
 	//取消收藏
 	$('.info_content').on('click', '.remove_collect', function(){
 		var target = $(this).parents('.collect_box');

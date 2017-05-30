@@ -1,6 +1,6 @@
 <% include ./head %>
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-<link href="//at.alicdn.com/t/font_fh701kfzpf4j9k9.css" rel="stylesheet">
+<link href="//at.alicdn.com/t/font_v5td27vxkmrhpvi.css" rel="stylesheet">
 <link rel="stylesheet" href="/stylesheets/header.css">
 <% if(filename){ %>
 <link rel="stylesheet" href="/stylesheets/<%= filename %>.css">
@@ -38,8 +38,8 @@
 			</div>
 			<div class="sitebar_topnav fr">
 				<ul class="clearfix">
-					<li class="fl"><a target="_blank" href="javascripts:;">免费领券</a><span class="fg_line">|</span></li>
-					<li class="fl"><a target="_blank" href="javascripts:;">积分换礼</a><span class="fg_line">|</span></li>
+					<li class="fl"><a target="_blank" href="javascript:;">免费领券</a><span class="fg_line">|</span></li>
+					<li class="fl"><a target="_blank" href="javascript:;">积分换礼</a><span class="fg_line">|</span></li>
 				</ul>
 			</div>
 		</div>
@@ -71,9 +71,13 @@
 			</div>
 			<div class="site_search fr">
 				<div class="search_box">
-					<form method="get" action="">
+					<form method="get" action="/results" method="GET">
 						<div class="search_input">
-							<input type="text" id="keywords" class="keywords" name="s" value placeholder="请输入想找的宝贝"/>
+						<% if(typeof key !== 'undefined'){ %>
+							<input type="text" id="keywords" class="keywords" name="key" value="<%= key %>"/>			
+							<% }else{ %>
+							<input type="text" id="keywords" class="keywords" name="key" value placeholder="请输入想找的宝贝"/>
+							<% } %>
 							<button type="submit" class="search_submit" value=""><i class="fa fa-search"></i></button>
 						</div>
 						
@@ -139,7 +143,15 @@
 			<p>
 				<i class="iconfont icon-103"></i>
 				<span class="modal_txt"></span>
-			</p>		
+			</p>				
+		</div>
+	</div>
+	<div class="modal_info">
+		<div class="modal_con">
+			<p>
+				<i class="iconfont icon-gantanhao"></i>
+				<span class="modal_txt"></span>
+			</p>				
 		</div>
 	</div>
 <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
