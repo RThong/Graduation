@@ -65,3 +65,13 @@ exports.discountInput = function(req, res, next) {
   
 };
 
+exports.delete = function(req, res, next) {
+  Discount.remove({_id: req.query.id}, function(err, discount){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.json({success:1});
+    }
+  });
+}

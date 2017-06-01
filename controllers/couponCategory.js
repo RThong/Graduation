@@ -22,10 +22,12 @@ exports.handleData = function(req, res, next){
     if(err){
       console.log(err);
     }
-
+    
     Theme.findById(category.theme, function(err, theme){
+     
       theme.categories.push(category._id);
       theme.save(function(err, theme){
+        
         var list = [];
         var coupon = {
           title: category.title,
@@ -38,15 +40,16 @@ exports.handleData = function(req, res, next){
         for(var i = 0;i < category.count; i++){
           list.push(coupon);
         }
+
         Coupon.create(list, function(err, coupons){
           if(err){
             console.log(err);
           }
-
+          
           var arr=[];
-          coupons.forEach(function(item){
-            arr.push(item._id);
-          });
+          for (var i = 0; i < coupons.length; i++) {
+            arr[i] = coupons[i]._id;
+          }
           category.coupons = category.coupons.concat(arr);
           category.save(function(err, category){
             res.redirect('/admin');

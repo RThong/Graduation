@@ -35,6 +35,9 @@ router.get('/publish/:id', Discount.detail);
 //用户页首页
 router.get('/my/index', User.index);
 
+//用户页个人信息
+router.get('/my/setpersonal', User.setpersonal);
+
 //注册页
 router.get('/signup', function(req, res, next){
   res.render('signup');
@@ -160,6 +163,16 @@ router.post('/ajax/username', User.check);
 //用户ajax登录
 router.post('/ajax/signin', User.ajaxLogin);
 
+//用户更改头像
+router.post('/ajax/change_ava', User.ajaxAva);
+
 //搜索分类
 router.get('/results', Index.search);
+
+//后台列表删除
+router.delete('/admin/discountlist', Admin.delete);
+
+//爆料-分类子页
+router.get('/publish/category/:id', Discount.publishSubpage);
+
 module.exports = router;

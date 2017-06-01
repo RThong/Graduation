@@ -1,6 +1,5 @@
 function showPreview(source) {  
 	var file = source.files[0]; 
-	console.log(source) 
 	if(window.FileReader) {  
 		var fr = new FileReader();  
 		fr.onloadend = function(e) {  

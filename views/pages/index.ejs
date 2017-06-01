@@ -6,7 +6,7 @@
 				
 				<% if(!user){ %>
 				<div class="nosign_box">
-					<a href="jvascript:;" class="sign_btn login_modal">
+					<a href="javascript:;" class="sign_btn login_modal">
 						<span class="sign_date"></span>
 						<span class="sign_txt">每日签到领积分</span>
 					</a>
@@ -47,8 +47,12 @@
 				</div>
 
 				<div class="sign_foot">
-					<a target="_blank" href="">爆料有奖</a>
-					<a target="_blank" href="">积分兑换</a>
+					<% if(!user){ %>
+					<a class="login_modal" href="javascript:;">爆料有奖</a>
+					<% }else{ %>
+					<a href="/my/publish/add">爆料有奖</a>
+					<% } %>
+					<a href="/theme">积分兑换</a>
 				</div>
 			</div>
 			
@@ -60,22 +64,17 @@
 				<ul class="screen">
 					<li data-id="0" class="img show">
 						<a href="javascript:;">
-							<img src="images/58fdf664N89286242.jpg" alt="">
+							<img src="images/5926a6a4N14e84054.jpg" alt="">
 						</a>
 					</li>
 					<li data-id="1" class="img">
 						<a href="javascript:;">
-							<img src="images/59004d2dNe8355e7a.png" alt="">
+							<img src="images/592f7229N0fed5d54.jpg" alt="">
 						</a>
 					</li>
 					<li data-id="2" class="img">
 						<a href="javascript:;">
-							<img src="images/58f8909aN48decdd1.jpg" alt="">
-						</a>
-					</li>
-					<li data-id="3" class="img">
-						<a href="javascript:;">
-							<img src="images/58fee2c5Ne7c949e4.jpg" alt="">
+							<img src="images/592f8abaNfc75a097.jpg" alt="">
 						</a>
 					</li>
 					<li class="label-left">
@@ -87,7 +86,6 @@
 				</ul>
 				<ul class="label-wrap">
 					<li class="label active"></li>
-					<li class="label"></li>
 					<li class="label"></li>
 					<li class="label"></li>
 				</ul>

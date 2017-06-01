@@ -48,13 +48,11 @@
 			<!-- 每日推荐 -->
 			<div class="detail_content fr">
 				<div class="detail_path">
-					<a href="">首页</a>
+					<a href="/">首页</a>
 					<span>></span>
-					<a href="">天猫</a>
-					<span>/</span>
-					<a href="">食品酒水</a>
+					<a href="/discount/category/<%= discount.category._id %>/1"><%= discount.category.name %></a>
 					<span>></span>
-					<a class="detail_tit_s" href=""><%= discount.title %></a>
+					<span class="detail_tit_s"><%= discount.title %></span>
 				</div>
 				<h4 class="detail_tit">
 					<%= discount.title %>
@@ -94,11 +92,11 @@
 					<% if(!user){ %>
 						<div class="comment_left fl">
 							<img class="default_user_pic" width="60px;" src="https://i.huim.com/users/14184718036496.jpg" alt="">
-							<a class="login comment_btn" href="javascript:;">登录</a>
+							<a class="login_modal comment_btn" href="javascript:;">登录</a>
 							
 						</div>
 						<div class="comment_right fl">
-							<p>想评论,请先 <a class="login" href="javascript:;">登录</a> 哦~</p>
+							<p>想评论,请先 <a class="login_modal" href="javascript:;">登录</a> 哦~</p>
 						</div>
 					<% }else{ %>
 						<form id="commentForm">

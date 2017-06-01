@@ -149,6 +149,7 @@ exports.signup = function(req, res, next){
 //登出
 exports.logout = function(req, res, next) {
   delete req.session.passport;
+  delete res.locals;
   res.redirect('/'); 
 };
 
@@ -303,3 +304,20 @@ exports.ajaxLogin = function(req, res, next){
   })(req, res, next);
   
 };
+
+exports.setpersonal = function(req, res, next){
+  res.render('user_setpersonal', {
+    filename: 'user'
+  })
+}
+exports.ajaxAva = function(req, res, next){
+  var avatar = req.body.img;
+  User.update({_id:req.user._id},{$set:{avatar:avatar}},function(err){
+    if(err){
+      console.log(err);
+    }
+    res.json({
+      status:1
+    })
+  });
+}

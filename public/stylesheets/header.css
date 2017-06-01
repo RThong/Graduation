@@ -5,13 +5,16 @@
 	line-height: 30px;
 }
 .top_sitebar .fg_line{
-	margin: 0 8px 0 7px;
+	margin: 0 8px 4px 15px;
 	display: inline-block;
 	vertical-align: middle;
 	color: #ccc;
 }
 .top_sitebar .user_info{
 	position: relative;
+}
+.top_sitebar .user_info .login_modal{
+	cursor: pointer;
 }
 .user_info .nickname{
 	display: inline-block;

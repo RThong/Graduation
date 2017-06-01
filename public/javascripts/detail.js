@@ -16,12 +16,7 @@ $(function(){
 			console.log('err');
 		});
 	});
- 	
- 	//登录
-	$('.login').on('click', function(){
-		$('.cover').removeClass('modal_hide');
-		$('.modal').removeClass('modal_hide');		
-	});
+	
 
 	//点赞
 	$('.comment_dec').on('click', '.csupport', function(){

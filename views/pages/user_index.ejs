@@ -4,7 +4,7 @@
 			<div class="left_nav fl">
 				<ul>
 					<li class="personal_list"><a href="" class="list_link cur_list">个人中心</a></li>
-					<li class="personal_list"><a href="" class="list_link">账户设置</a></li>
+					<li class="personal_list"><a href="/my/setpersonal" class="list_link">账户设置</a></li>
 				</ul>
 			</div>
 			<div class="main_page fl">
@@ -33,24 +33,28 @@
 					<!-- 列表 -->
 					<ul class="tab_list clearfix">
 						<div class="tab_line"></div>
-
-						<li class="tab_box tab_current fl">
+						
+						<li class="tab_box tab_current fl">					
 							<a href="javascript:;" class="tab">首页</a>
 							<p class="tab_scale"></p>							
 						</li>
+
 						<li class="tab_box fl">
 							<a href="javascript:;" class="tab">评论(<%= comment_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
-						<li class="tab_box fl">
+
+						<li class="tab_box fl">					
 							<a href="javascript:;" class="tab">爆料(<%= discount_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
-						<li class="tab_box fl">
+						
+						<li class="tab_box fl">					
 							<a href="javascript:;" class="tab" id="collect_tit">收藏(<%= collect_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
-						<li class="tab_box fl">
+						
+						<li class="tab_box fl">		
 							<a href="javascript:;" class="tab">优惠券(<%= coupon_count %>)</a>
 							<p class="tab_scale"></p>
 						</li>
@@ -58,9 +62,11 @@
 					<!-- 内容框 -->
 					<div class="my_list">
 						<div class="info_content current_content">
+
+							<div class="info_wrap">
 							<div class="my_title comment_top clearfix">
 								<h3 class="fl">评论</h3>
-								<a class="fr" href="">更多评论></a>
+								<a class="more fr" href="javascript:;">更多评论></a>
 							</div>
 							<ul class="my_comment common_box">
 								<% comments.forEach(function(item){ %>
@@ -87,10 +93,11 @@
 								</li>
 								<% }) %>
 							</ul>
-
+						</div>
+						<div class="info_wrap">
 							<div class="my_title clearfix">
 								<h3 class="fl">爆料</h3>
-								<a class="fr" href="">更多爆料></a>
+								<a class="more fr" href="javascript:;">更多爆料></a>
 							</div>
 							<ul class="my_pulish common_box">
 								<% discounts.forEach(function(item){ %>
@@ -115,10 +122,11 @@
 								<% }) %>
 								
 							</ul>
-
+						</div>
+						<div class="info_wrap">
 							<div class="my_title clearfix">
 								<h3 class="fl">收藏</h3>
-								<a class="fr" href="">更多收藏></a>
+								<a class="more fr" href="javascript:;">更多收藏></a>
 							</div>
 							<ul class="my_pulish common_box my_collect">
 								<% collects.forEach(function(item){%>
@@ -142,10 +150,11 @@
 								<% }) %>
 
 							</ul>
-
+						</div>
+						<div class="info_wrap">
 							<div class="my_title clearfix">
 								<h3 class="fl">优惠券</h3>
-								<a class="fr" href="">更多优惠券></a>
+								<a class="more fr" href="javascript:;">更多优惠券></a>
 							</div>
 							<div class="coupon_content">
 								<table class="coupon_table">
@@ -169,6 +178,7 @@
 								</table>
 							</div>
 						</div>
+						</div>
 
 
 						<div class="info_content" data-flag="0">
@@ -190,4 +200,5 @@
 	</div>
 <script type="text/javascript" src="/javascripts/moment.js"></script>
 <script type="text/javascript" src="/javascripts/user_index.js"></script>
+<script type="text/javascript" src="/javascripts/cropbox.js"></script>
 <% include ../includes/footer %>

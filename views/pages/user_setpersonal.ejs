@@ -1,0 +1,54 @@
+<% include ../includes/header %>
+	<div class="user_content">
+		<div class="container clearfix">
+			<div class="left_nav fl">
+				<ul>
+					<li class="personal_list"><a href="/my/index" class="list_link">个人中心</a></li>
+					<li class="personal_list"><a href="" class="list_link cur_list">账户设置</a></li>
+				</ul>
+			</div>
+			<div class="main_page fl">
+				<div class="main_info">
+					<ul class="acount_info">
+						<li>
+							<span class="acount_item">头像:</span>
+							<link rel="stylesheet" href="/stylesheets/imgCut.css">
+							<div class="imgCut clearfix">
+								<div class="img_main">
+									<div class="imageBox">
+										<div class="thumbBox"></div>
+										<div class="spinner" style="display: none">Loading...</div>
+									</div>
+									<div class="action">
+										<div class="new-contentarea tc">
+											<a href="javascript:void(0)" class="upload-img"> <label
+												for="upload-file">上传图像</label>
+											</a> <input type="file" class="" name="upload-file" id="upload-file" />
+										</div>
+										<input type="button" id="btnCrop" class="Btnsty_peyton" value="裁剪">
+										<input type="button" id="btnCrop" class="img_save" value="保存">
+									</div>
+								</div>
+								<div class="cropped"></div>
+							</div>
+						</li>
+						
+					</ul>			
+
+							
+
+						
+
+							
+
+
+							
+						
+				</div>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="/javascripts/moment.js"></script>
+<script type="text/javascript" src="/javascripts/user_index.js"></script>
+<script type="text/javascript" src="/javascripts/cropbox.js"></script>
+<% include ../includes/footer %>

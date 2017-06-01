@@ -11,10 +11,10 @@ $(function(){
 			})
 			.done(function(res){
 				if(res.signDays <= 7){
-					prompt('签到成功，积分加5');
+					prompt(0, '签到成功，积分加5');
 				}
 				else{
-					prompt('签到成功，积分加10');
+					prompt(0, '签到成功，积分加10');
 				}			
 				$('.sign_days').text(res.signDays);
 			})
@@ -32,6 +32,7 @@ $(function(){
 		}
 	})
 
+	//左边栏滚动
 	$(window).on('scroll',function(){
 		if($(window).scrollTop() > $('.rec_content').find('.container').offset().top - 100){
 			$('.side_nav').addClass('fixed_nav');

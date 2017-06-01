@@ -30,10 +30,15 @@
 }
 .publish_head .category_list:hover{
 	background: #ea3524;
-	color: #fff;
 }
 .publish_head .category_list:hover a{
 	color: #fff;
+}
+.publish_head .cur_list{
+	background: #ea3524;
+}
+.publish_head .cur_list a{
+	color: #fff !important;
 }
 .publish_head .category_list a{
 	font-size: 14px;

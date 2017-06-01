@@ -16,7 +16,7 @@ exports.detail = function(req, res, next) {
 
 
   Discount.findOne({_id: id})
-  .populate('user')
+  .populate('user category')
   .exec(function(err,discount){
     Comment
     .find({discount: id})
@@ -32,7 +32,7 @@ exports.detail = function(req, res, next) {
           discount.hot++;
           discount.save(function(err, discount){
 
-            return res.render('detail', { 
+            res.render('detail', { 
               filename: 'detail',
               discount: discount,
               comments: comments,
@@ -40,12 +40,15 @@ exports.detail = function(req, res, next) {
             });
           });
         }
-        res.render('detail', { 
-          filename: 'detail',
-          discount: discount,
-          comments: comments,
-          hots: hots
-        });
+        else{
+          res.render('detail', { 
+            filename: 'detail',
+            discount: discount,
+            comments: comments,
+            hots: hots
+          });
+        }
+        
       });
     });
   }) 
@@ -78,7 +81,8 @@ exports.subpage = function(req, res, next) {
           .findOne({_id:id})
           .populate({
             path: 'discounts',
-            select: '_id img key intro site category',
+            select: '_id img key intro site category type',
+            match: {type: '1'},
             options: {skip: index ,limit: count}
           })
           .exec(function(err, categories){
@@ -306,6 +310,7 @@ exports.handleData = function(req, res, next) {
   
 };
 
+//录入扒取数据
 exports.inputDatas = function(req, res, next) {
   curl.download(url, function(data) {
     if (data) {
@@ -325,6 +330,7 @@ exports.inputDatas = function(req, res, next) {
         obj.site = $(e).find('.list_buy_btn').attr('href');
         obj.type = '1';
         obj.verify = '1';
+        obj.user = req.user._id;
         list.push(obj);
       });
       Discount.create(list,function(err){
@@ -360,7 +366,7 @@ exports.publishIndex = function(req, res, next){
     if (err) {
       console.log(err);
     }
-    console.log(discounts)
+    
     Category.fetchCT(function(err,categories){
       res.render('publish_index',{
         filename:'publish_index',
@@ -369,9 +375,39 @@ exports.publishIndex = function(req, res, next){
       });
     });
     
-  });
-    
+  });   
 };
+
+
+exports.publishSubpage = function(req, res, next){
+  var id = req.params.id;
+
+  Category.findOne({_id: id})
+  .populate({
+    path:'discounts',
+    select: '_id img key intro site category type user',
+    match: {type: '2', status: { $lt: 10 }},
+    populate: {
+      path: 'user'
+    }
+  })
+  .exec(function(err,category){
+    if (err) {
+      console.log(err);
+    }
+
+    Category.fetchCT(function(err,categories){
+      res.render('publish_category',{
+        filename:'publish_index',
+        category: category,
+        categories: categories,
+        categoryId: id
+      });
+    });
+    
+  });   
+};
+
 
 exports.verify = function(req, res, next){
   

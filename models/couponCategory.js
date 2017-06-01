@@ -19,7 +19,7 @@ var Couponcategory = new Schema({
 	receiveCount: {
 		type: Number,
 		default: 0
-	},
+	},//已领取数量
 	expirationtime: Date,//有效期至
 	point: Number,//领取积分
 	price: Number,//金额

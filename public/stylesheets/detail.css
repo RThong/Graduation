@@ -62,6 +62,9 @@
 	padding: 10px 0;
 	border-bottom: 1px dashed #ddd;
 }
+.detail_path>a:hover{
+	color: #3366cc;
+}
 .detail_tit_s{
 	display: inline-block;
 	white-space: nowrap;

@@ -7,7 +7,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var mongoStore = require('connect-mongo')(session);//在mongoDB中存储session
 var bodyParser = require('body-parser');
-var passport = require('passport');
+var passport = require('passport');//密码注册登录验证模块
 
 
 var User = require('./models/user');
@@ -31,8 +31,8 @@ app.locals.moment = require('moment');
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({limit:'1mb'}));
+app.use(bodyParser.urlencoded({limit: "1mb", extended: true }));
 app.use(cookieParser());
 
 app.use(session({
@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //将用户信息传入所有模板
 app.use(function (req, res, next) {
-    res.locals.user = req.user;
+    res.locals.user = req.user;   
     next();
 });
 

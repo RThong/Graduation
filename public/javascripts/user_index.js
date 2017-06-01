@@ -1,7 +1,22 @@
 $(function(){
 	// console.log(moment().isBefore('2017-05-15T07:26:32.611Z'))
 
+
+	$('.more').on('click', function(){
+		var index = $(this).parents('.info_wrap').index();
+		$('.tab_list').find('.tab_current').removeClass('tab_current');
+		$('.tab_list').find('.tab_box').eq(index+1).addClass('tab_current');
+
+		var target = $('.tab_list').find('.tab_box').eq(index+1);
+
+		tabChange(target)
+	})
+
 	//左tab height
+	if($('.cropbox')){
+		uploadImg($('.nickname').find('img').attr('src'));
+	}
+	
 
 	$('.left_nav').height($('.user_content').find('.container').height());
 
@@ -28,61 +43,91 @@ $(function(){
 		$(this).addClass('tab_current');
 
 		var target = $(this);
+		tabChange(target)
+		// $('.my_list').find('.current_content').removeClass('current_content');
+		// var targetBox = $('.my_list').find('.info_content').eq(target.index()-1);
 
-		$('.my_list').find('.current_content').removeClass('current_content');
-		var targetBox = $('.my_list').find('.info_content').eq(target.index()-1);
+		// targetBox.addClass('current_content');
 
-		targetBox.addClass('current_content');
+		// if(targetBox.data('flag') == '0'){
+		// 	if(target.index() == 2){
+		// 		$.get('/ajax/page_comment')
+		// 		.done(function(res){
+		// 			commentDom(2, res);
+		// 			targetBox.data('flag', '1');
+		// 		})
+		// 		.fail(function(res){
+		// 			console.log('error!');
+		// 		})
+		// 	}
 
-		if(targetBox.data('flag') == '0'){
-			if(target.index() == 2){
-				$.get('/ajax/page_comment')
-				.done(function(res){
-					commentDom(2, res);
-					targetBox.data('flag', '1');
-				})
-				.fail(function(res){
-					console.log('error!');
-				})
-			}
+		// 	if(target.index() == 3){
+		// 		$.get('/ajax/page_publish')
+		// 		.done(function(res){
+		// 			publishDom(3, res);
+		// 			targetBox.data('flag', '1');
+		// 		})
+		// 		.fail(function(res){
+		// 			console.log('error!');
+		// 		})
+		// 	}
 
-			if(target.index() == 3){
-				$.get('/ajax/page_publish')
-				.done(function(res){
-					publishDom(3, res);
-					targetBox.data('flag', '1');
-				})
-				.fail(function(res){
-					console.log('error!');
-				})
-			}
+		// 	if(target.index() == 5){
+		// 		$.get('/ajax/page_coupon')
+		// 		.done(function(res){
+		// 			couponDom(5, res);
+		// 			targetBox.data('flag', '1');
+		// 		})
+		// 		.fail(function(res){
+		// 			console.log('error!');
+		// 		})
+		// 	}
 
-			if(target.index() == 5){
-				$.get('/ajax/page_coupon')
-				.done(function(res){
-					couponDom(5, res);
-					targetBox.data('flag', '1');
-				})
-				.fail(function(res){
-					console.log('error!');
-				})
-			}
+		// }
 
-		}
+		// if(target.index() == 4){
+		// 	targetBox.find('.my_collect').remove();
 
-		if(target.index() == 4){
-			targetBox.find('.my_collect').remove();
-
-			$.get('/ajax/page_collect')
-			.done(function(res){
-				collectDom(4, res);
+		// 	$.get('/ajax/page_collect')
+		// 	.done(function(res){
+		// 		collectDom(4, res);
 				
+		// 	})
+		// 	.fail(function(res){
+		// 		console.log('error!');
+		// 	})
+		// }
+		
+	});
+
+	$('.imageBox').on('mouseenter', function(){
+		$('body').attr({
+			'onmousewheel': 'return false;'
+		})
+	})
+	.on('mouseleave', function(){
+		$('body').removeAttr('onmousewheel');
+	});
+
+	//上传图片保存
+	$('.img_save').on('click', function(){
+		if(!$('.cropped').find('img').attr('src')){
+			prompt(1,'请选定好头像');
+			return;
+		}
+		else{
+			$.post('/ajax/change_ava', {
+				img: $('.cropped').find('img').attr('src')
 			})
-			.fail(function(res){
-				console.log('error!');
+			.done(function(res){
+				if(res.status == 1){
+					prompt(0,'修改成功');
+				}
+			})
+			.done(function(error){
+				console.log(error)
 			})
 		}
-		
 	})
 })
 
@@ -110,6 +155,7 @@ function commentDom(index, result){
 	
 	dom += '</ul>'
 	$(".info_content").eq(index-1).prepend(dom);
+
 }
 
 function publishDom(index, result){
@@ -194,4 +240,99 @@ function couponDom(index, result){
 
 	dom += `</tbody></table></div>`;
 	$(".info_content").eq(index-1).prepend(dom);
+}
+
+function uploadImg(src){
+	var options =
+	{
+		thumbBox: '.thumbBox',
+		spinner: '.spinner',
+		imgSrc: src
+	}
+	var cropper = $('.imageBox').cropbox(options);
+	$('#upload-file').on('change', function(){
+		var path = $(this).val(),  
+		extStart = path.lastIndexOf('.'),  
+		ext = path.substring(extStart,path.length).toUpperCase();  
+
+        //获取图片大小，注意使用this，而不是$(this)  
+        var size = this.files[0].size / 1024;  
+        if(size > 500){  
+        	prompt(1,'图片大小不能超过500K');  
+
+        	return false;  
+        }
+
+        var reader = new FileReader();
+        reader.onload = function(e) {
+        	options.imgSrc = e.target.result;
+        	cropper = $('.imageBox').cropbox(options);
+        }
+        reader.readAsDataURL(this.files[0]);
+        this.files = [];
+      })
+	$('#btnCrop').on('click', function(){
+		var img = cropper.getDataURL();
+		$('.cropped').html('');
+		$('.cropped').append('<img src="' + img + '" align="absmiddle" '
+			+ 'style="width:128px;margin-top:4px;border-radius:128px;'
+			+  'box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+	});
+}
+
+
+function tabChange(target){
+	$('.my_list').find('.current_content').removeClass('current_content');
+		var targetBox = $('.my_list').find('.info_content').eq(target.index()-1);
+
+		targetBox.addClass('current_content');
+
+		if(targetBox.data('flag') == '0'){
+			if(target.index() == 2){
+				$.get('/ajax/page_comment')
+				.done(function(res){
+					commentDom(2, res);
+					targetBox.data('flag', '1');
+				})
+				.fail(function(res){
+					console.log('error!');
+				})
+			}
+
+			if(target.index() == 3){
+				$.get('/ajax/page_publish')
+				.done(function(res){
+					publishDom(3, res);
+					targetBox.data('flag', '1');
+				})
+				.fail(function(res){
+					console.log('error!');
+				})
+			}
+
+			if(target.index() == 5){
+				$.get('/ajax/page_coupon')
+				.done(function(res){
+					couponDom(5, res);
+					targetBox.data('flag', '1');
+				})
+				.fail(function(res){
+					console.log('error!');
+				})
+			}
+
+		}
+
+		if(target.index() == 4){
+			targetBox.find('.my_collect').remove();
+
+			$.get('/ajax/page_collect')
+			.done(function(res){
+				collectDom(4, res);
+				
+			})
+			.fail(function(res){
+				console.log('error!');
+			})
+		}
 }
